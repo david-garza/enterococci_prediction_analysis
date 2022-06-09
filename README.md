@@ -11,3 +11,7 @@ The problem is that testing occurs weekly or bi weekly, there is a delay time of
 ## Proposal
 
 Using historical bacteria testing and weather records, I propose to train a regression model that estimates the bacteria levels for a beach for even given day using current / real time weather conditions. If successful, the delay from testing to reporting to the public would be greatly reduced.
+
+## Assumptions
+
+It is assumed that weather and water conditions influence the growth rate of bacteria in seawater. Project success assumes that the relationship exists.
