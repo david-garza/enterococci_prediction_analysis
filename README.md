@@ -15,3 +15,9 @@ Using historical bacteria testing and weather records, I propose to train a regr
 ## Assumptions
 
 It is assumed that weather and water conditions influence the growth rate of bacteria in seawater. Project success assumes that the relationship exists.
+
+## Data Sources
+
+- Beach Advisory and Closing On-line Notification historical bacteria levels [example](https://beacon.epa.gov/ords/beacon2/f?p=121:38:16858900653526::::). (CSV download)
+
+- Historical Weather Data [example](https://www.ncei.noaa.gov/access/past-weather/Galveston%2C%20Texas). (CSV download)
