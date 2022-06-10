@@ -32,7 +32,7 @@ It is assumed that weather and water conditions influence the growth rate of bac
 Weekly zoom meeting at 9:00 AM on Monday to map out work plan and duties for the coming week.
 
 ## Slack
-Primary channel of for real time coummunications between team members and instructional staff.
+Primary channel for real time coummunications between team members and instructional staff.
 
 ## Emergency Communications
 TBD
