@@ -4,57 +4,35 @@
 
 
 CREATE TABLE "Beach_Attributes" (
-    "State" vanchar   NOT NULL,
-    "Year" int   NOT NULL,
     "Beach_ID" varchar   NOT NULL,
     "Beach_Name" varchar   NOT NULL,
-    "County" varchar   NOT NULL,
-    "Beach_Ownership_Accessibility" varchar   NOT NULL,
-    "Beach_Lenght" float   NOT NULL,
     "Tier" int   NOT NULL,
     "Start_Lat" float   NOT NULL,
     "Start_Long" float   NOT NULL,
     "End_lat" float   NOT NULL,
     "End_Long" float   NOT NULL,
-    "Water_Body_Name" varchar   NOT NULL,
     "Water_Body_Type" varchar   NOT NULL,
-    "Advisory_Reporting_Freq" decimal   NOT NULL,
-    "AdvisoryReportingFrequencyUnits" varchar   NOT NULL,
     CONSTRAINT "pk_Beach_Attributes" PRIMARY KEY (
         "Beach_ID"
      )
 );
 
 CREATE TABLE "Water_Quality" (
-    "State_Code" varchar   NOT NULL,
+    "Date" date   NOT NULL,
     "Year" int   NOT NULL,
     "Beach_ID" varchar   NOT NULL,
     "Beach_Name" varchar   NOT NULL,
     "Station_ID" varchar   NOT NULL,
     "Station_Name" varchar   NOT NULL,
-    "County_Name" varchar   NOT NULL,
     "Identifier" varchar   NOT NULL,
-    "Date" date   NOT NULL,
     "Start_Time" time   NOT NULL,
     "Zone_Code" varchar   NOT NULL,
-    "Activity_Type_Code" varchar   NOT NULL,
-    "Characteristic_Name" varchar   NOT NULL,
-    "Result_Value_Text" varchar   NOT NULL,
     "Bacteria_Count" decimal   NOT NULL,
     "Result_Measure_Unit" varchar   NOT NULL,
-    "Result_Comment" varchar   NOT NULL,
-    "Activity_Depth_Value" decimal   NOT NULL,
-    "Activity_Depth_Unit_Code" varchar   NOT NULL,
-    "Result_Analytical_Method_Identifier_Context" varchar   NOT NULL,
     "Result_Analytical_Method_Identifier" varchar   NOT NULL,
     "Result_Analytical_Method_Name" varchar   NOT NULL,
-    "Sample_Collection_Method_Identifier" varchar   NOT NULL,
-    "Sample_Collection_Method_Name" varchar   NOT NULL,
-    "Field_Gear" varchar   NOT NULL,
-    "Analysis_Date_Time" date   NOT NULL,
-    "Detection_Quantitation_Limit" varchar   NOT NULL,
     CONSTRAINT "pk_Water_Quality" PRIMARY KEY (
-        "Beach_ID","Date"
+        "Date","Beach_ID"
      )
 );
 
