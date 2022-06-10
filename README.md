@@ -25,3 +25,14 @@ It is assumed that weather and water conditions influence the growth rate of bac
 ## Appendix
 
 - [Texas Beaches May Be Filthier Than We Realize - Texas Monthly](https://www.texasmonthly.com/news-politics/texas-beaches-filthy-feces-testing/)
+
+# Communications Protocals
+
+## Zoom Meeting
+Weekly zoom meeting at 9:00 AM on Monday to map out work plan and duties for the coming week.
+
+## Slack
+Primary channel of for real time coummunications between team members and instructional staff.
+
+## Emergency Communications
+TBD
