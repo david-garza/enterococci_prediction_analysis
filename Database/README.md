@@ -22,14 +22,14 @@ Below we can see the three tables loaded on pgAdmin without problems:
 
 ![Beach_Attributes](./Resources/Beach_Attributes.png)
 
-- 
+- Names of the columns were standardized for easier readability and compatibility.
 
 ### **Water Quality**
 
 
 ![Water_Quality](./Resources/Water_Quality.png)
 
--
+- Names of the columns were standardized for easier readability and compatibility.
 
 ### **Weather Station 1**
 
@@ -48,10 +48,10 @@ Below we can see the three tables loaded on pgAdmin without problems:
 ## Second Segment Suggestions
 
 - Dataframes:
-	- I suggest the datasets are further cleaned and investigated.
-	- Decide which column to drop and whether we are combining these datasets in any other way.
+	- Clean and investigate Datasets further.
+	- Decide which columns to drop and whether we are combining these datasets in any other way.
 
 
 - ERD and Database Schema
-	- I suggest we try to find a combination of features that make a combined unique key after further cleaning and investigating the datasets.
+	- Try to find a combination of features that make a combined unique key after further cleaning and investigating the datasets.
 
