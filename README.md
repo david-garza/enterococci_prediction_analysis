@@ -29,3 +29,10 @@ The team will meet weekly via zoom at 9:00 AM on Monday to map out a work plan a
 
 ## Slack
 Primary channel for real time coummunications between team members and instructional staff.
+
+## Github
+Comment on pull request and issues to create a record of work specific to changes in the repo.
+
+# Deliverables Update
+
+## Database
