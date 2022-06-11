@@ -1,4 +1,4 @@
-# Real Time Beach Bacteria Prediction Modeling
+# Beach Bacteria Prediction Modeling Project
 
 ## Problem
 
@@ -6,15 +6,11 @@ Texas beaches are a great place to relax and have fun, but there are potential d
 
 The state currently tests and reports bacteria levels for several beaches and displays bacteria counts at [TexasBeachWatch.com](https://cgis.glo.texas.gov/Beachwatch/#).
 
-The problem is that testing occurs weekly or bi weekly, there is a delay time of at least 3 if not more days in taking the sample, sending the sample to a lab, and then testing the sampe. By the time results come back, bacteria levels may have risen to unsafe levels.
+The problem is that testing occurs weekly or bi weekly, there is a delay time of at least three if not more days from when the sample is taken and finally reported to the public. By the time results come back, bacteria levels may have risen to unsafe levels.
 
 ## Proposal
 
-Using historical bacteria testing and weather records, I propose to train a regression model that estimates the bacteria levels for a beach for even given day using current / real time weather conditions. If successful, the delay from testing to reporting to the public would be greatly reduced.
-
-## Assumptions
-
-It is assumed that weather and water conditions influence the growth rate of bacteria in seawater. Project success assumes that the relationship exists.
+Using historical bacteria sample and weather records, we propose to train a regression model that estimates the bacteria counts when provided weather information. If successful, the delay from testing to reporting to the public would be greatly reduced.
 
 ## Data Sources
 
@@ -26,13 +22,10 @@ It is assumed that weather and water conditions influence the growth rate of bac
 
 - [Texas Beaches May Be Filthier Than We Realize - Texas Monthly](https://www.texasmonthly.com/news-politics/texas-beaches-filthy-feces-testing/)
 
-# Communications Protocals
+# Team Communications Protocals
 
 ## Zoom Meeting
-Weekly zoom meeting at 9:00 AM on Monday to map out work plan and duties for the coming week.
+The team will meet weekly via zoom at 9:00 AM on Monday to map out a work plan and duties for the coming week.
 
 ## Slack
 Primary channel for real time coummunications between team members and instructional staff.
-
-## Emergency Communications
-TBD
