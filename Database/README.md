@@ -20,27 +20,27 @@ Below we can see the three tables loaded on pgAdmin without problems:
 
 ### **Beach Attributes**
 
-![Beach_Attributes](./resources/Beach_Attributes.png)
+![Beach_Attributes](./Resources/Beach_Attributes.png)
 
 - 
 
 ### **Water Quality**
 
 
-![Water_Quality](./resources/Water_Quality.png)
+![Water_Quality](./Resources/Water_Quality.png)
 
 -
 
 ### **Weather Station 1**
 
-![Weather_Station1](./resources/Weather_Station1.png)
+![Weather_Station1](./Resources/Weather_Station1.png)
 
 - Names of the columns were standardized for easier readability and compatibility.
 - It was decided not to drop any columns of the Weather_Station1 table because prior to that we need to further investigate the other weather_station files to see if we will combine them in any way.
 
 ## Entity Relationship Diagram - ERD
 
-![QuickDBD-final_project_schema](./resources/QuickDBD-final_project_schema.png)
+![QuickDBD-final_project_schema](./Resources/QuickDBD-final_project_schema.png)
 
 - The Entity Relationship Diagram is at its very first stage where the tables have not been connected because we don't have unique keys yet.
 
