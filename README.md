@@ -94,3 +94,19 @@ Below we can see the three tables loaded on pgAdmin without problems:
 ## Machine Learning
 
 Machine learning items can be found [here](machine_learning).
+
+### Stage 1 Work
+
+1.	Imported Dependencies
+2.	Loaded mock CSV file
+3.	Examined head and tail of data verify read
+4.	Pre-Processing
+    1.	Checked data types
+    2.	Dropped unnecessary data from the data set
+    3.	Converted beach name and beach type into integer values
+    4.	Scaled data so numeric values were standardized
+    5.	Split the data into training and testing data sets
+5.	Modeling
+    1.	Fit a linear regression model
+    2.	Made predictions using the testing data
+    3.	Evaluated the model using R-square score
