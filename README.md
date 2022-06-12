@@ -2,11 +2,11 @@
 
 ## Problem
 
-Texas beaches are a great place to relax and have fun, but there are potential dangers in the water. Bacteria levels can exceed safe levels causing the state to close beaches (loss of revenue for locals) or at worst make bathers sick. 
+Texas beaches are a great place to relax and have fun, but there are potential dangers in the water. Bacteria levels can exceed safe levels causing the state to close beaches and loss of revenue for locals or at worst make bathers sick. 
 
 The state currently tests and reports bacteria levels for several beaches and displays bacteria counts at [TexasBeachWatch.com](https://cgis.glo.texas.gov/Beachwatch/#).
 
-The problem is that testing occurs weekly or bi weekly, there is a delay time of at least three if not more days from when the sample is taken and finally reported to the public. By the time results come back, bacteria levels may have risen to unsafe levels.
+The problem is that testing occurs weekly or biweekly, there is a delay time of at least three if not more days from when the sample is taken and finally reported to the public. By the time results come back, bacteria levels may have risen to unsafe levels.
 
 ## Proposal
 
@@ -22,34 +22,33 @@ Using historical bacteria sample and weather records, we propose to train a regr
 
 - [Texas Beaches May Be Filthier Than We Realize - Texas Monthly](https://www.texasmonthly.com/news-politics/texas-beaches-filthy-feces-testing/)
 
-# Team Communications Protocals
+# Team Communications Protocols
 
 ## Zoom Meeting
 The team will meet weekly via zoom at 9:00 AM on Monday to map out a work plan and duties for the coming week.
 
 ## Slack
-Primary channel for real time coummunications between team members and instructional staff.
+Primary channel for real time communications between team members and instructional staff.
 
-## Github
-Comment on pull request and issues to create a record of work specific to changes in the repo.
+## GitHub
+Team will comment on pull request and issues to create a record of work specific to changes in the repo.
 
 # Deliverables Update
 
 ## Database
 
-Our data consists of twelve datasets in CSV format files; which two of them hold beach attributes and water quality while the other ten represent weather stations on Galveston Island.
+Our data consists of twelve datasets in CSV format files, which two of them hold beach attributes and water quality while the other ten represent weather stations on Galveston Island.
 
 Database items can be found [here](Database).
 
-### Database Mockup Design:
+### Database Mockup Design
 
-- Three out of the twelve datasets were used;
-- Google Drive is temporarily storing the datasets;
-- Pandas library was used for some basic ETL;
-- SQLalchemy was used to create the engine to connect and load the dataframes to a PostgreSQL database;
-- AWS RDS instance was used as our Relational Database Solution;
-- PgAdming was used to manage the tables in the database.
-
+- Three out of the twelve datasets were used.
+- Google Drive is temporarily storing the datasets.
+- Pandas library was used for some basic ETL.
+- SQLalchemy was used to create the engine to connect and load the data frames to a PostgreSQL database.
+- AWS RDS instance was used as our Relational Database Solution.
+- PgAdmin was used to manage the tables in the database.
 
 ### Loading Test
 
@@ -73,7 +72,7 @@ Below we can see the three tables loaded on pgAdmin without problems:
 ![Weather_Station1](Database/Resources/Weather_Station1.png)
 
 - Names of the columns were standardized for easier readability and compatibility.
-- It was decided not to drop any columns of the Weather_Station1 table because prior to that we need to further investigate the other weather_station files to see if we will combine them in any way.
+- It was decided not to drop any columns of the Weather_Station1 table because prior to that we need to further investigate the other weather station files to see if we will combine them in any way.
 
 ### Entity Relationship Diagram - ERD
 
@@ -84,7 +83,7 @@ Below we can see the three tables loaded on pgAdmin without problems:
 
 ### Future Work / Suggestions
 
-- Dataframes:
+- Data frames:
 	- Clean and investigate Datasets further.
 	- Decide which columns to drop and whether we are combining these datasets in any other way.
 
@@ -94,3 +93,4 @@ Below we can see the three tables loaded on pgAdmin without problems:
 
 ## Machine Learning
 
+Machine learning items can be found [here](machine_learning).
