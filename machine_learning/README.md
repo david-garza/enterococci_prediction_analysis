@@ -36,3 +36,7 @@ Plan of attack is to use SQLalchemy to connect to Postgrese and read the tables.
 ### Scaling
 
 It was found that linear regression models such as linear regression and lasso need to have both the features and target scaled. Information about scaling the target varible and code can be found [here](https://machinelearningmastery.com/how-to-transform-target-variables-for-regression-with-scikit-learn/).
+
+### Linear Regression Model
+
+When setting up the instance of the regression model. Fit intercept will be set to false since the data is already normalized. Information about the linear regession model can be found [here](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html).
