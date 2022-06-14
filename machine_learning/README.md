@@ -26,3 +26,9 @@
 - Fit a linear regression model- regression is used to predict a number, in this case the number of bacteria.  Regressions are the simplest from of regression model algorithmically and visually. 
 - Made predictions using the testing data.
 - Evaluated the model using R-square score - our modeling score is -0.15 this means that our model, when utilizing the mock data, this means that there might be a correlation between bacteria count and weather. Had our R-squared value been 0, it would tell us weather can’t be used to predict bacteria counts.
+
+## Stage 2 - David Garza
+
+### Modify Code to Interface with Database
+
+Plan of attack is to use SQLalchemy to connect to Postgrese and read the tables. Will join the tables in Pandas if needed. SQLalchemy reference for reading tables is [here](https://towardsdatascience.com/sqlalchemy-python-tutorial-79a577141a91).
