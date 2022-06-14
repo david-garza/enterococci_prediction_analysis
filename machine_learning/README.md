@@ -32,3 +32,7 @@
 ### Modify Code to Interface with Database
 
 Plan of attack is to use SQLalchemy to connect to Postgrese and read the tables. Will join the tables in Pandas if needed. SQLalchemy and reading SQL tables with Pandas reference for reading tables is [here](https://www.geeksforgeeks.org/read-sql-database-table-into-a-pandas-dataframe-using-sqlalchemy/).
+
+### Scaling
+
+It was found that linear regression models such as linear regression and lasso need to have both the features and target scaled. Information about scaling the target varible and code can be found [here](https://machinelearningmastery.com/how-to-transform-target-variables-for-regression-with-scikit-learn/).
