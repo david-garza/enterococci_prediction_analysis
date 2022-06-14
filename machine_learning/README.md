@@ -31,4 +31,4 @@
 
 ### Modify Code to Interface with Database
 
-Plan of attack is to use SQLalchemy to connect to Postgrese and read the tables. Will join the tables in Pandas if needed. SQLalchemy reference for reading tables is [here](https://towardsdatascience.com/sqlalchemy-python-tutorial-79a577141a91).
+Plan of attack is to use SQLalchemy to connect to Postgrese and read the tables. Will join the tables in Pandas if needed. SQLalchemy and reading SQL tables with Pandas reference for reading tables is [here](https://www.geeksforgeeks.org/read-sql-database-table-into-a-pandas-dataframe-using-sqlalchemy/).
