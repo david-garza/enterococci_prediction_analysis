@@ -24,6 +24,14 @@ FROM beach_attributes
 RIGHT JOIN water_quality 
 ON beach_attributes.beach_id = water_quality.beach_id
 LEFT JOIN weather_station1
-ON water_quality.date = weather_station1.date1 ;
+ON water_quality.date = weather_station1.date1
+WHERE start_lat>29.083384 AND end_lat<29.335302 AND start_long>-95.115837 AND end_long<-94.732335;
 
-
+CREATE VIEW initial_join as
+SELECT beach_attributes.beach_id, beach_attributes.beach_name, start_lat, start_long, end_lat, end_long, waterbody_type, station_id, station_name, bacteria_count, weather_station1.date1, avg_temp1, max_temp1, min_temp1, precipitation1
+FROM beach_attributes
+RIGHT JOIN water_quality 
+ON beach_attributes.beach_id = water_quality.beach_id
+LEFT JOIN weather_station1
+ON water_quality.date = weather_station1.date1
+WHERE start_lat>29.083384 AND end_lat<29.335302 AND start_long>-95.115837 AND end_long<-94.732335;
