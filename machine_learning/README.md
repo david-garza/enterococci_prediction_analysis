@@ -41,6 +41,16 @@ It was found that linear regression models such as linear regression and lasso n
 
 When setting up the instance of the regression model. Fit intercept will be set to false since the data is already normalized. Information about the linear regession model can be found [here](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html).
 
+#### Evaluation
+
+The model was run using the weather and station ID.
+![resources](resources/station_wx_table.PNG)
+
+After peforming the model fit the best R-squared value was ![r-squred](resources/station_wx_r2.PNG).
+
+From the residudals, the model greatly under predicts the high bacteria counts.
+![residuals](resources/station_wx_res.PNG)
+
 ### Classification Model
 
 Moving to a classification model to fit the presentation of the project and hopefully removes the skew issue of the high bacteria counts.
