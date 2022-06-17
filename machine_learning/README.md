@@ -54,3 +54,5 @@ From the residudals, the model greatly under predicts the high bacteria counts.
 ### Classification Model
 
 Moving to a classification model to fit the presentation of the project and hopefully removes the skew issue of the high bacteria counts.
+
+Also applying 5 day windowing to account for weather before the sample was taken. Information on windowing can be found [here](https://www.stratascratch.com/blog/python-window-functions/#:~:text=Window%20function%20is%20a%20popular,useful%20in%20Python%20as%20well.).
