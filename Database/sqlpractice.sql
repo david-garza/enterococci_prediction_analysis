@@ -19,19 +19,30 @@ that leaves a remainder of 4 snowfall days of the 16983 records */
 EXECUTE sp_rename 'weather_station1.date1', 'date', 'COLUMN';
 
 /* RIGHT JOIN SO THAT DATA IS EXCLUDED FROM BEACH ATTRIBUTES IF THERE IS NOT A MATCH IN WATER QUALITY, ALL ROWS IN WATER QUALITY WILL BE INCLUDED AND WILL*/
-SELECT beach_attributes.beach_id, beach_attributes.beach_name, start_lat, start_long, end_lat, end_long, waterbody_type, station_id, station_name, bacteria_count, weather_station1.date1, avg_temp1, max_temp1, min_temp1, precipitation1
+
+
+SELECT beach_attributes.beach_id, beach_attributes.beach_name, start_lat, start_long, end_lat, end_long, waterbody_type, station_id, station_name, bacteria_count, weather_station1.date1, avg_temp1, max_temp1, min_temp1, precipitation1, precipitation54, precipitation18
 FROM beach_attributes
 RIGHT JOIN water_quality 
 ON beach_attributes.beach_id = water_quality.beach_id
 LEFT JOIN weather_station1
 ON water_quality.date = weather_station1.date1
+LEFT JOIN weather_station54
+ON water_quality.date = weather_station54.date54
+LEFT JOIN weather_station18
+ON water_quality.date = weather_station18.date18
 WHERE start_lat>29.083384 AND end_lat<29.335302 AND start_long>-95.115837 AND end_long<-94.732335;
 
-CREATE VIEW initial_join as
-SELECT beach_attributes.beach_id, beach_attributes.beach_name, start_lat, start_long, end_lat, end_long, waterbody_type, station_id, station_name, bacteria_count, weather_station1.date1, avg_temp1, max_temp1, min_temp1, precipitation1
+
+CREATE VIEW galveston_data_join_date_update as
+SELECT beach_attributes.beach_id, beach_attributes.beach_name, start_lat, start_long, end_lat, end_long, waterbody_type, station_id, station_name, bacteria_count, water_quality.date, avg_temp1, max_temp1, min_temp1, precipitation1, precipitation54, precipitation18, 
 FROM beach_attributes
 RIGHT JOIN water_quality 
 ON beach_attributes.beach_id = water_quality.beach_id
 LEFT JOIN weather_station1
 ON water_quality.date = weather_station1.date1
+LEFT JOIN weather_station54
+ON water_quality.date = weather_station54.date54
+LEFT JOIN weather_station18
+ON water_quality.date = weather_station18.date18
 WHERE start_lat>29.083384 AND end_lat<29.335302 AND start_long>-95.115837 AND end_long<-94.732335;
