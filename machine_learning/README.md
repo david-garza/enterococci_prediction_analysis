@@ -40,3 +40,7 @@ It was found that linear regression models such as linear regression and lasso n
 ### Linear Regression Model
 
 When setting up the instance of the regression model. Fit intercept will be set to false since the data is already normalized. Information about the linear regession model can be found [here](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html).
+
+### Classification Model
+
+Moving to a classification model to fit the presentation of the project and hopefully removes the skew issue of the high bacteria counts.
