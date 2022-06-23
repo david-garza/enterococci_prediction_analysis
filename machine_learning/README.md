@@ -27,7 +27,7 @@
 - Made predictions using the testing data.
 - Evaluated the model using R-square score - our modeling score is -0.15 this means that our model, when utilizing the mock data, this means that there might be a correlation between bacteria count and weather. Had our R-squared value been 0, it would tell us weather can’t be used to predict bacteria counts.
 
-## Stage 2 - David Garza
+## Segement 2 - David Garza
 
 ### Preliminary Data Preprocessing
 
@@ -43,7 +43,7 @@ Encoding was used in both the regression and classifier models.
 
 #### Regression Models
 
-Initial models attempted to predict the bacteria counts using linear regression models. This immediately required scaling the features data using the standardscaler() method from sklearn.
+Initial models attempted to predict the bacteria counts using linear regression models. This immediately required scaling the features data using the standardscaler() function from sklearn.
 
 The target variable distribution skewed hard right. Attempts to transform the target variable via log transforamtion improved R-squared but not significantly.
 
@@ -81,3 +81,42 @@ Including the past temperature and precipitation data improved the balanced accu
 Switching to a classifier model improved the accuracy of the model. Initially, the models attempted to classify the target variable into low, medium, and high risk. 
 
 The target variable was reduced to two levels low risk and risky, a bucket of medium and high risk. This bucketing of the target variable imporved the balanced accuracy of the models.
+
+### Training and Testing Split
+
+The function train_test_split() from sklearn was used split the data into train and test sets. The default parameters except for random_state and stratify.
+
+Random state was set to ensure reproducibility during evluation and after feature changes.
+
+The target variable was supplied for startify, because the target variable is not balanced. Low risk classification signifiicantly outnumbers medium and high risk classifications.
+
+### Model Selection
+
+Model selection was very iterative in both input features used and model fitted. 
+
+#### Feature Combinations
+
+Ideally, merging all of the weather stations across the island with the bacteria sample data would provide the best data resolution for run off and beach location. 
+
+The problem is that the weather data is patchy historically, therefore, merges would create NAs over non-overlapping periods of time. The greatest date overlap with the bacteria data and other weather stations was with the weather station at Scholes field, station 18, and station 54. 
+
+Data sets were inputed using one, two, or all three stations. Each additional station merged with the data would also reduce the number of viable rows.
+
+Station 18 and 54 are located in the city, therefore, and additional filtered data set of all beaches and city only beaches was also submitted to fitting.
+
+The highest balanced accuracy occurs in the data set with Scholes and startion 18 and filtered to only city beaches. Adding station 54 reduces the accuracy possibly due to the reduction of viable rows.
+
+#### Models
+
+Classifier models were fitted using all of the feature combinations listed above into the following models:
+
+1. Linear SVC
+2. KNeighbors Classifier
+3. SVC
+
+Ensemble Classifiers
+1. Random Forest Classifier
+2. AdaBoost Classifier
+3. Gradient Boosting Classifier
+
+In all combinations of features, AdaBoost always had the highest balanced accuracy.
