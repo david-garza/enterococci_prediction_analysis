@@ -29,34 +29,55 @@
 
 ## Stage 2 - David Garza
 
-### Modify Code to Interface with Database
+### Preliminary Data Preprocessing
 
-Plan of attack is to use SQLalchemy to connect to Postgrese and read the tables. Will join the tables in Pandas if needed. SQLalchemy and reading SQL tables with Pandas reference for reading tables is [here](https://www.geeksforgeeks.org/read-sql-database-table-into-a-pandas-dataframe-using-sqlalchemy/).
+Several attempts at preprocessing were attempted because several different types of models were used to predict the bacteria counts, regression,  or risk level, classifier.
+
+#### Encoding
+
+Features that were strings such as beach name or station name had to be encoded. The pandas method get_dummies() was applied to these bariables to transform them into binary categories.
+
+Encoding was used in both the regression and classifier models.
 
 ### Scaling
 
-It was found that linear regression models such as linear regression and lasso need to have both the features and target scaled. Information about scaling the target varible and code can be found [here](https://machinelearningmastery.com/how-to-transform-target-variables-for-regression-with-scikit-learn/).
+#### Regression Models
 
-### Linear Regression Model
+Initial models attempted to predict the bacteria counts using linear regression models. This immediately required scaling the features data using the standardscaler() method from sklearn.
 
-When setting up the instance of the regression model. Fit intercept will be set to false since the data is already normalized. Information about the linear regession model can be found [here](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html).
+The target variable distribution skewed hard right. Attempts to transform the target variable via log transforamtion improved R-squared but not significantly.
 
-#### Evaluation
+#### Classifier Models
 
-The model was run using the weather and station ID.
-![resources](resources/station_wx_table.PNG)
+Standard scaler was still applied to the input features, but no longer needed for the target variable.
 
-After peforming the model fit the best R-squared value was ![r-squred](resources/station_wx_r2.PNG).
+### Preliminary Feature Engineering and Selection
 
-From the residudals, the model greatly under predicts the high bacteria counts.
-![residuals](resources/station_wx_res.PNG)
+#### Feature Selection
 
-### Classification Model
+Initial research suggested that E. Coli contamination occurs when rain falls onto land based sources and the run off flows into the ocean. 
 
-Moving to a classification model to fit the presentation of the project and hopefully removes the skew issue of the high bacteria counts.
+To model runoff as best as possible, the following features were included:
+- Precipitation from several weather stations as a proxy for specific location rain run off.
+- Temperature as a proxy for bacteria grow rate, assuming that bacteria grow faster in warmer weather.
+- Beach sample station ids, as a proxy for beach locations.
 
-Also applying 5 day windowing to account for weather before the sample was taken. Information on windowing can be found [here](https://www.stratascratch.com/blog/python-window-functions/#:~:text=Window%20function%20is%20a%20popular,useful%20in%20Python%20as%20well.).
+Later exploratory analysis, would lead to subsetting the beaches that were closets to the statiosn that recorded precipitation. This filtering improved the balanced accuracy of the classifier models.
 
-#### Winning Model
+#### Feature Engineering
 
-The winning model is the AdaBoosterClassifier ensemble model. It can reach a balanced accuracy of 69.7%. The model appears to max out at this accuracy even after hypertuning the learning parameter and increasing the number of estimators.
+The main models tested were the classifiers. During classifier fitting and evaluation, the following feature engineering was performed to improve the model accuracy.
+
+##### 5 Day Rolling Averages and Totals
+
+It was proposed that if run off was washing bacteria from land based sources into the ocean there would probably be a delay from when the rain occurs and when the bacteria was detected. For each station that recorded precipitation, a 5 day prior sum of precipitation was engineered to the data set.
+
+A 5 day prior average temperature for average, min, and max temperature was also engineered and added to the data.
+
+Including the past temperature and precipitation data improved the balanced accuracy of the model.
+
+##### Target Variable Level Reduction
+
+Switching to a classifier model improved the accuracy of the model. Initially, the models attempted to classify the target variable into low, medium, and high risk. 
+
+The tareget variable was reduced to two levels low risk and risky, a bucket of medium and high risk. This bucketing of the target variable imporved the balanced accuracy of the models.
