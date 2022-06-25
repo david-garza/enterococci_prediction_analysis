@@ -80,12 +80,24 @@ Below we can see the three tables loaded on pgAdmin without problems:
 
 - The Entity Relationship Diagram is at its very first stage where the tables have not been connected because we don't have unique keys yet.
 
+### Joining data to Prep for Machine Learning
+
+Tables:
+
+- beach_attributes
+- water_quality
+- weather_station1
+- weather_station18
+- weather_station54
+
+Utilized SELECT Count ( distint snowfall1) to examine the number of snowfall days in weather_station1. Of the 16983 records only 4 days registard snowfall. This lead to the teams decision to drop the dnowfall1 column and not use it as part of our analysis. 
+
+
+
+
+
 
 ### Future Work / Suggestions
-
-- Data frames:
-	- Clean and investigate Datasets further.
-	- Decide which columns to drop and whether we are combining these datasets in any other way.
 
 
 - ERD and Database Schema
