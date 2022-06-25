@@ -20,32 +20,32 @@
 
 ## Water Quality Dataset
 
-- The columns that unique values were equal to zero or one were dropped, as they are not relevant for the analysis.
+- The columns that had unique values were equal to zero or one were dropped, as they are not relevant for the analysis.
 - A new column was created to hold the "risk_level" obtain from the column "bacteria_counts", where upon online research it was possible to identify what are the bacteria levels that are considered low, medium, and high risk.
-- Necessary datatypes were converted from object to datetime, and the repositioned on the dataframe.
-- A "week" and "month" columns were created out of the date column in case we would need it for the machine learning predictions.
+- Necessary datatypes were converted from object to datetime, and then repositioned on the dataframe.
+- Columns for "week" and "month" were created out of the date column in case we would need it for the machine learning predictions.
 - The name of the columns were standardized to match the table schema on pgAdmin in preparation for loading the data to the database.
 
 
 ## Main Weather Station Dataset
 
 - Null values were dropped;
-- Necessary datatypes were converted from object to datetime, and the repositioned on the dataframe.
+- Necessary datatypes were converted from object to datetime, and then repositioned on the dataframe.
 - The name of the columns were standardized to match the table schema on pgAdmin in preparation for loading the data to the database.
 
 
 ## Weather Station 18
 
 - Null values were dropped;
-- Null and unecessary columns were dropped;
-- Necessary datatypes were converted from object to datetime, and the repositioned on the dataframe.
+- Null and unnecessary columns were dropped;
+- Necessary datatypes were converted from object to datetime, and then repositioned on the dataframe.
 - The name of the columns were standardized to match the table schema on pgAdmin in preparation for loading the data to the database.
 
 ## Weather Station 54
 
 - Null values were dropped;
-- Null and unecessary columns were dropped;
-- Necessary datatypes were converted from object to datetime, and the repositioned on the dataframe.
+- Null and unnecessary columns were dropped;
+- Necessary datatypes were converted from object to datetime, and then repositioned on the dataframe.
 - The name of the columns were standardized to match the table schema on pgAdmin in preparation for loading the data to the database.
 
 
@@ -53,4 +53,4 @@
 
 - To load the datasets one load function was created for each dataset;
     - Where a connection to PostgreSql was created using an AWS RDS endpoint.
-    - SQLAlchemy was used to creted the engine to load the dataframes into PostgreSQL tables.
+    - SQLAlchemy was used to create the engine to load the dataframes into PostgreSQL tables.
