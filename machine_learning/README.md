@@ -1,5 +1,11 @@
 # Machine Learning Overview
 
+Files in this folder
+- ml_regression.ipynb: Initial attempt to estimate by regression
+- ml_classifier.ipynb: out of box classifier models run on different features
+- ml_classifier_opt.ipynb: copy of ml_classifier, but with hyper feature optimization applied to models
+- ml_final.ipynb: "Winning" Adabooster model applied to all and city specific beach data
+
 ## Preliminary Data Preprocessing
 
 Several attempts at preprocessing were attempted because several different types of models were used to predict the bacteria counts, regression,  or risk level, classifier.
