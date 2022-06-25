@@ -54,3 +54,9 @@ The Tableau story can be found [here](https://public.tableau.com/app/profile/bia
 The machine learning model evolved from a regression model to a classifier from feed back in model performance and findings in the exploratory analysis. 
 
 A detailed write up of the machine learning model evolution can be found [here](machine_learning/README.md). 
+
+### Dashboard
+
+Draft dashboard is a website that allows users to interactively explore the data.
+
+Information can be found in the [website folder](website).
