@@ -4,9 +4,6 @@ select * from beach_attributes;
 select * from water_quality;
 select * from weather_station1
 
-/* Determine the total rows of data in weather_station1 */
-select count(*) from weather_station1
-/* Results 16983 rows */
 
 
 select count(distinct snowfall1)
