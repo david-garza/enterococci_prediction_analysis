@@ -55,3 +55,11 @@ Below we can see the three tables loaded on pgAdmin without problems:
 - ERD and Database Schema
 	- Try to find a combination of features that make a combined unique key after further cleaning and investigating the datasets.
 
+## Create View and Join Tables
+
+- Use a righ join to join water_quality to beach_attributes on beach_attributes.beach_id = water_quality.beach_id.
+- Use a left join to join weather_station1, weather_Station18, and weather_station 54  to water_quality on water_quality.data = weather_station(number).date(number). Number equates the station number. 
+- Added a where clause to exclude beaches that were not on Galveston island. The beach_attributes data frame included beaches throughout Galveston county which was much larger area the the analysis area. We utilized the WHERE clause to exclude latitudes and longitunes that expanded further than Galvestion Island. 
+- Created a View galveston_data_join and selected the column we wanted to call form each table. The view was crated to give all teammates access to the joined tables. 
+
+
