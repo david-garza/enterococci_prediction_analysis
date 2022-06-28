@@ -97,3 +97,7 @@ Ensemble Classifiers
 3. Gradient Boosting Classifier
 
 In all combinations of features, AdaBoost always had the highest balanced accuracy.
+
+## Winning and Selected Models
+
+The winning model was the ada5_model that used the main weather station and the station 18, but due to the fact that station 18 doesn't have the most current data, the team has opted to go for ada4_model, which only uses the weather data from the main weather station. Using the joblib library, the scaler, labelencoder, and ada4_models have been saved as files in the *saved_models* directory.
