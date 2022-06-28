@@ -55,6 +55,9 @@ The machine learning model evolved from a regression model to a classifier from 
 
 A detailed write up of the machine learning model evolution can be found [here](machine_learning/README.md). 
 
+### GSlides
+
+The slide presentation can be found [here](https://docs.google.com/presentation/d/1el09AXHnyRaLuhO7MKxmYrAIeOkY54n6twwczkmwBEo/edit?usp=sharing).
 ### Dashboard
 
 Draft dashboard is a website that allows users to interactively explore the data.
