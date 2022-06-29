@@ -27,7 +27,7 @@
       </div>
     </div>
     <p>test. </p>
-    <p>{{test.text}}</p>
+    <p>{{test.message}}</p>
     <div class="row">
       <div class="col-md-2">
         <!-- A <div> belonging to the well class contains a dropdown menu with an id of selDataset. -->
@@ -39,9 +39,6 @@
           <!-- The argument for theoptionChanged() function is this.value. -->
           <!-- Here, this refers to the dropdown menu. this.value therefore returns to the value attribute of the current dropdown menu selection. -->
           <select id="selDataset" onchange="optionChanged(this.value)">
-            {% for d in days %}
-              <OPTION value={{d}}>{{d}}</OPTION>
-            {% endfor %}
           </select>
         </div>
         <div class="panel panel-primary">
