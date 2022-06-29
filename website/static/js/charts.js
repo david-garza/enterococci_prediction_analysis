@@ -57,29 +57,29 @@ function optionChanged(newSample) {
   
 }
 
-// // Result Panel 
-// function buildMetadata(sample) {
-//   d3.json("samples.json").then((data) => {
-//     var metadata = data.metadata;
-//     // Filter the data for the object with the desired sample number
-//     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
-//     var result = resultArray[0];
+// Result Panel 
+function buildMetadata(sample) {
+  d3.json("samples.json").then((data) => {
+    var metadata = data.metadata;
+    // Filter the data for the object with the desired sample number
+    var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
+    var result = resultArray[0];
 
-//     // Use d3 to select the panel with id of `#sample-metadata`
-//     var PANEL = d3.select("#sample-metadata");
+    // Use d3 to select the panel with id of `#sample-metadata`
+    var PANEL = d3.select("#sample-metadata");
 
-//     // Use `.html("") to clear any existing metadata
-//     PANEL.html("");
+    // Use `.html("") to clear any existing metadata
+    PANEL.html("");
 
-//     // Use `Object.entries` to add each key and value pair to the panel
-//     // Hint: Inside the loop, you will need to use d3 to append new
-//     // tags for each key-value in the metadata.
-//     Object.entries(result).forEach(([key, value]) => {
-//       PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
-//     });
+    // Use `Object.entries` to add each key and value pair to the panel
+    // Hint: Inside the loop, you will need to use d3 to append new
+    // tags for each key-value in the metadata.
+    Object.entries(result).forEach(([key, value]) => {
+      PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+    });
 
-//   });
-// }
+  });
+}
 
 
 
@@ -122,16 +122,11 @@ function buildChart(sample) {
 
 
     // 1. Create a variable that filters the metadata array for the object with the desired sample number.
-    var metadata = data.metadata;
-    var metadataArray = metadata.filter(sampleObj => sampleObj.id == sample);
- 
-    // 2. Create a variable that holds the first sample in the array.
-    var metaresults = metadataArray[0];
+    
+// Create the gauge chart.
+    var gaugePlot = document.getElementById('gauge');
 
-    // 3. Create a variable that holds the washing frequency.
-    var risk_level = metaresults.wfreq;
-
-    // 4. Create the trace for the gauge chart.
+    function create_gauge_plot(score) {
     var gaugeData = [{
       domain: {x: [0, 1], y: [0, 1 ]},
       value: risk_level,
@@ -157,7 +152,7 @@ function buildChart(sample) {
     };
 
     // 6. Use Plotly to plot the gauge data and layout.
-    Plotly.newPlot("gauge", gaugeData, gaugeLayout, {responsive:true});
+    Plotly.newPlot("gaugePlot", gaugeData, gaugeLayout, {responsive:true});
   });
 
 };
