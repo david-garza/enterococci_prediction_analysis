@@ -40,7 +40,7 @@
           <!-- Here, this refers to the dropdown menu. this.value therefore returns to the value attribute of the current dropdown menu selection. -->
           <select id="selDataset" onchange="optionChanged(this.value)">
             {% for d in days %}
-              <OPTION value={{d.value}}>{{d.day}}</OPTION>
+              <OPTION value={{d}}>{{d}}</OPTION>
             {% endfor %}
           </select>
         </div>
