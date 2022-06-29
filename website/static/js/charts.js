@@ -82,7 +82,7 @@ function buildMetadata(sample) {
 }
 
 
-// /////////////////  ---------------------   BAR CHART  ------------------------ ///////////////////
+
 
 
 // 1. Create the buildCharts function.
@@ -160,5 +160,5 @@ function buildCharts(sample) {
     Plotly.newPlot("gauge", gaugeData, gaugeLayout, {responsive:true});
   });
 
-// };
+};
 
