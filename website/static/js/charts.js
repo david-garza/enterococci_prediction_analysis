@@ -2,11 +2,12 @@ date = ['2022-06-05', '2022-06-06', '2022-06-07', '2022-06-08', '2022-06-09',
 '2022-06-10', '2022-06-11', '2022-06-12', '2022-06-13', '2022-06-14',
 '2022-06-15', '2022-06-16', '2022-06-17', '2022-06-18', '2022-06-19',
 '2022-06-20', '2022-06-21', '2022-06-22', '2022-06-23', '2022-06-24']
-beach_name = []
 
-function init() {
+beach_name = ['Steward Beach', '25th Street Beach', '45th Street Beach', '61st Street Beach']
+
+function init1() {
   // Grab a reference to the dropdown select element
-  var selector = d3.select("#selDataset");
+  var selector = d3.select("#selDataset1");
 
   // Use the list of sample names to populate the select options
   date.forEach((sample) => {
@@ -20,6 +21,15 @@ function init() {
     var firstSample = date[0];
     buildCharts(firstSample);
     buildMetadata(firstSample);
+};
+// Initialize the dashboard
+init1();
+
+
+
+function init2() {
+  // Grab a reference to the dropdown select element
+  var selector = d3.select("#selDataset2");
 
   // Use the list of sample names to populate the select options
   beach_name.forEach((sample) => {
@@ -36,9 +46,9 @@ function init() {
   buildMetadata(firstSample);
   };
 
-
 // Initialize the dashboard
-init();
+init2();
+
 
 function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
