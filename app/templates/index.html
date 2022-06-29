@@ -27,6 +27,7 @@
       </div>
     </div>
     <p>test. </p>
+    
     <div class="row">
       <div class="col-md-2">
         <!-- A <div> belonging to the well class contains a dropdown menu with an id of selDataset. -->
@@ -38,6 +39,9 @@
           <!-- The argument for theoptionChanged() function is this.value. -->
           <!-- Here, this refers to the dropdown menu. this.value therefore returns to the value attribute of the current dropdown menu selection. -->
           <select id="selDataset" onchange="optionChanged(this.value)">
+            {% for c in colors %}
+              <option value={{c.name}}>{{c.name}}</option>
+            {% endfor %}
           </select>
         </div>
         <div class="panel panel-primary">
