@@ -3,7 +3,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-d = {"date":['2022-06-23','2022-06-22','2022-06-21']}
+d = {"date":['monday','tuesday','wednesday']}
 df = pd.DataFrame(data=d)
 @app.route("/")
 def index():
