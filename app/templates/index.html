@@ -39,8 +39,8 @@
           <!-- The argument for theoptionChanged() function is this.value. -->
           <!-- Here, this refers to the dropdown menu. this.value therefore returns to the value attribute of the current dropdown menu selection. -->
           <select id="selDataset" onchange="optionChanged(this.value)">
-            {% for d in table %}
-              <OPTION value={{d.date}}>{{d.date}}</OPTION>
+            {% for d in days %}
+              <OPTION value={{d.value}}>{{d.day}}</OPTION>
             {% endfor %}
           </select>
         </div>
