@@ -38,7 +38,11 @@
           <!-- When a change takes place in the dropdown menu, the optionChanged() function is called. -->
           <!-- The argument for theoptionChanged() function is this.value. -->
           <!-- Here, this refers to the dropdown menu. this.value therefore returns to the value attribute of the current dropdown menu selection. -->
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+          <select id="selDataset" onchange="optionChanged(this.value)">
+            {% for date in test %}
+              <OPTION value={{date.date}}>{{date.date}}</OPTION>
+            {% endfor %}
+          </select>
         </div>
         <div class="panel panel-primary">
           <div class="panel-heading" style= background-color:rgb(47,151,111)>

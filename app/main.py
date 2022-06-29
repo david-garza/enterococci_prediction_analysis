@@ -2,7 +2,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-test = {"text":"Heroku and Flask deplotyment test"}
+test = {"date":['2022-06-23','2022-06-22','2022-06-21']}
 
 @app.route("/")
 def index():
