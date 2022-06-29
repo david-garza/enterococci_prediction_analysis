@@ -1,192 +1,77 @@
-date = ['2022-06-05', '2022-06-06', '2022-06-07', '2022-06-08', '2022-06-09',
-'2022-06-10', '2022-06-11', '2022-06-12', '2022-06-13', '2022-06-14',
-'2022-06-15', '2022-06-16', '2022-06-17', '2022-06-18', '2022-06-19',
-'2022-06-20', '2022-06-21', '2022-06-22', '2022-06-23', '2022-06-24']
 
-beach_name = ['Steward Beach', '25th Street Beach', '45th Street Beach', '61st Street Beach']
-
-function init1() {
-  // Grab a reference to the dropdown select element
-  var selector = d3.select("#selDataset1");
-
-  // Use the list of sample names to populate the select options
-  date.forEach((sample) => {
-    selector
-    .append("option")
-    .text(sample)
-    .property("value", sample);
-  })
-
-    // Use the first sample from the list to build the initial plots
-    var firstSample = date[0];
-    buildChart(firstSample);
-    buildMetadata(firstSample);
-};
-// Initialize the dashboard
-init1();
-
-
-
-function init2() {
-  // Grab a reference to the dropdown select element
-  var selector = d3.select("#selDataset2");
-
-  // Use the list of sample names to populate the select options
-  beach_name.forEach((sample1) => {
-    selector
-    .append("option")
-    .text(sample1)
-    .property("value", sample1);
-
-  })
-
-  // Use the first sample from the list to build the initial plots
-  var firstSample1 = beach_name[0];
-  buildChart(firstSample1);
-  buildMetadata(firstSample1);
-  };
-
-// Initialize the dashboard
-init2();
-
-
-function optionChanged(newSample) {
-  // Fetch new data each time a new sample is selected
-  buildMetadata(newSample);
-  buildChart(newSample);
-  
-}
-
-// Result Panel 
-function buildMetadata(sample) {
-  d3.json("samples.json").then((data) => {
-    var metadata = data.metadata;
-    // Filter the data for the object with the desired sample number
-    var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
-    var result = resultArray[0];
-
-    // Use d3 to select the panel with id of `#sample-metadata`
-    var PANEL = d3.select("#sample-metadata");
-
-    // Use `.html("") to clear any existing metadata
-    PANEL.html("");
-
-    // Use `Object.entries` to add each key and value pair to the panel
-    // Hint: Inside the loop, you will need to use d3 to append new
-    // tags for each key-value in the metadata.
-    Object.entries(result).forEach(([key, value]) => {
-      PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
-    });
-
-  });
-}
-
-
-
-
-
-// 1. Create the buildChart function.
-function buildChart(sample) {
-  // 2. Use d3.json to load and retrieve the samples.json file 
-  d3.json("samples.json").then((data) => {
-
-
-  // 3. Create a variable that holds the samples array. 
-    var samplesArray = data.samples; 
-    console.log(samplesArray);
-
-  // 4. Create a variable that filters the samples for the object with the desired sample number.
-    var resultArray = samplesArray.filter(sampleObj => sampleObj.id == sample);
-    console.log(resultArray);
-
-
-    //  5. Create a variable that holds the first sample in the array.
-    var result = resultArray[0];
-    console.log(result);
-
-    // 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
-    var otuIds = result.otu_ids;
-    console.log(otuIds);
-
-    var otuLabels = result.otu_labels;
-    console.log(otuLabels);
-
-    var sampleValues = result.sample_values;
-    console.log(sampleValues);
-
-
-
-
-////////////////////////////    GAUGE CHART     /////////////////////////
-
-
-
-    // 1. Create a variable that filters the metadata array for the object with the desired sample number.
-    
-// Create the gauge chart.
-    var gaugePlot = document.getElementById('gauge');
-
-    function create_gauge_plot(score) {
-    var gaugeData = [{
-      domain: {x: [0, 1], y: [0, 1 ]},
-      value: risk_level,
-      title: {text: "Is it Safe to Swim?</b><br>Unsafe Levels of Bacteria are Present?"},
-      type: "indicator",
-      mode: "gauge+number",
+$(function() {/* w ww. j  a  v a 2s. c om*/
+  $('#container').highcharts({
+    chart: {
+      type: 'gauge',
+      plotBackgroundColor: null,
+      plotBackgroundImage: null,
+      plotBorderWidth: 0,
+      plotShadow: false
+    },
+    title: {
+      text: 'Speedometer'
+    },
+    pane: {
+      startAngle: -90,
+      endAngle: 90,
+      background: null
+    },
+    plotOptions: {
       gauge: {
-          axis: {range:[0, 1] },
-          steps: [
-
-            {range:[0], color:"lightseagreen"},
-            {range:[1], color:"orange"}
-         
-          ],
-          bar: { color: "darkslategrey" }
+        dataLabels: {
+          enabled: false
+        },
+        dial: {
+          baseLength: '0%',
+          baseWidth: 10,
+          radius: '100%',
+          rearLength: '0%',
+          topWidth: 1
+        }
       }
-
-    }];
-    
-    // 5. Create the layout for the gauge chart.
-    var gaugeLayout = { 
-      paper_bgcolor: "41bad83a"
-    };
-
-    // 6. Use Plotly to plot the gauge data and layout.
-    Plotly.newPlot("gaugePlot", gaugeData, gaugeLayout, {responsive:true});
-  });
-
-};
-
-
-
-
-
-
-// create a function called "handleClick" to handle what to do after an input is given.
-
-function handleClick() {
-  // tell D3 to look for the #datetime id in the HTML tags using d3.select("#datetime").
-  // tell D3 to look for where our date values are stored on the webpage and grab that information and
-  // hold it in the "date" variable using .property("value");
-  let date = d3.select("#datetime").property("value");
-  // set a default filter and save it to a new variable.
-  let filteredData = tableData;
-  // Check to see if a date was entered and filter the
-  // data using that date.
-  if (date) {
-      // Apply `filter` to the table data to only keep the
-      // rows where the `datetime` value matches the filter value
-      filteredData = filteredData.filter(row => row.datetime === date);
-  };
-
-  // Rebuild the table using the filtered data 
-  // NOTE@: If no date was entered, the filteredData will
-  // just be the original tabelData.
-  buildChart(filteredData);
-}
-
-// Attach  an event to listen for the form button
-d3.selectAll("#filter-btn").on("click", handleClick);
-
-// Build the table when the page loads
-buildChart(tableData);
+    },
+    // the value axis
+    yAxis: {
+      labels: {
+        enabled: true,
+        distance: 20,
+        formatter: function() {
+          var value = this.value, string;
+          if (value < 33) {
+            string = 'normal'
+          } else if (value < 66) {
+            string = 'heavy'
+          } else if (value < 100) {
+            string = 'warning'
+          } else string = 'critical';
+          return string;
+        }
+      },
+      tickPosition: 'outside',
+      tickPositions: [0, 33, 66, 100],
+      minorTickLength: 0,
+      min: 0,
+      max: 100,
+      plotBands: [{
+        from: 0,
+        to: 25,
+        color: 'rgb(192, 0, 0)', // red
+        thickness: '50%'
+      }, {
+        from: 25,
+        to: 75,
+        color: 'rgb(255, 192, 0)', // yellow
+        thickness: '50%'
+      }, {
+        from: 75,
+        to: 100,
+        color: 'rgb(155, 187, 89)', // green
+        thickness: '50%'
+      }]
+    },
+    series: [{
+      name: 'Speed',
+      data: [80]
+    }]
+});
+});
