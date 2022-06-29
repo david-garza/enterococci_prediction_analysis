@@ -19,7 +19,7 @@ function init1() {
 
     // Use the first sample from the list to build the initial plots
     var firstSample = date[0];
-    buildCharts(firstSample);
+    buildChart(firstSample);
     buildMetadata(firstSample);
 };
 // Initialize the dashboard
@@ -42,7 +42,7 @@ function init2() {
 
   // Use the first sample from the list to build the initial plots
   var firstSample1 = beach_name[0];
-  buildCharts(firstSample1);
+  buildChart(firstSample1);
   buildMetadata(firstSample1);
   };
 
@@ -53,40 +53,40 @@ init2();
 function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
   buildMetadata(newSample);
-  buildCharts(newSample);
+  buildChart(newSample);
   
 }
 
-// Result Panel 
-function buildMetadata(sample) {
-  d3.json("samples.json").then((data) => {
-    var metadata = data.metadata;
-    // Filter the data for the object with the desired sample number
-    var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
-    var result = resultArray[0];
+// // Result Panel 
+// function buildMetadata(sample) {
+//   d3.json("samples.json").then((data) => {
+//     var metadata = data.metadata;
+//     // Filter the data for the object with the desired sample number
+//     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
+//     var result = resultArray[0];
 
-    // Use d3 to select the panel with id of `#sample-metadata`
-    var PANEL = d3.select("#sample-metadata");
+//     // Use d3 to select the panel with id of `#sample-metadata`
+//     var PANEL = d3.select("#sample-metadata");
 
-    // Use `.html("") to clear any existing metadata
-    PANEL.html("");
+//     // Use `.html("") to clear any existing metadata
+//     PANEL.html("");
 
-    // Use `Object.entries` to add each key and value pair to the panel
-    // Hint: Inside the loop, you will need to use d3 to append new
-    // tags for each key-value in the metadata.
-    Object.entries(result).forEach(([key, value]) => {
-      PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
-    });
+//     // Use `Object.entries` to add each key and value pair to the panel
+//     // Hint: Inside the loop, you will need to use d3 to append new
+//     // tags for each key-value in the metadata.
+//     Object.entries(result).forEach(([key, value]) => {
+//       PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+//     });
 
-  });
-}
-
-
+//   });
+// }
 
 
 
-// 1. Create the buildCharts function.
-function buildCharts(sample) {
+
+
+// 1. Create the buildChart function.
+function buildChart(sample) {
   // 2. Use d3.json to load and retrieve the samples.json file 
   d3.json("samples.json").then((data) => {
 
@@ -133,8 +133,8 @@ function buildCharts(sample) {
 
     // 4. Create the trace for the gauge chart.
     var gaugeData = [{
-      domain: {x: [0, 1], y: [0, 1]},
-      value: risl_level,
+      domain: {x: [0, 1], y: [0, 1 ]},
+      value: risk_level,
       title: {text: "Is it Safe to Swim?</b><br>Unsafe Levels of Bacteria are Present?"},
       type: "indicator",
       mode: "gauge+number",
@@ -162,3 +162,36 @@ function buildCharts(sample) {
 
 };
 
+
+
+
+
+
+// create a function called "handleClick" to handle what to do after an input is given.
+
+function handleClick() {
+  // tell D3 to look for the #datetime id in the HTML tags using d3.select("#datetime").
+  // tell D3 to look for where our date values are stored on the webpage and grab that information and
+  // hold it in the "date" variable using .property("value");
+  let date = d3.select("#datetime").property("value");
+  // set a default filter and save it to a new variable.
+  let filteredData = tableData;
+  // Check to see if a date was entered and filter the
+  // data using that date.
+  if (date) {
+      // Apply `filter` to the table data to only keep the
+      // rows where the `datetime` value matches the filter value
+      filteredData = filteredData.filter(row => row.datetime === date);
+  };
+
+  // Rebuild the table using the filtered data 
+  // NOTE@: If no date was entered, the filteredData will
+  // just be the original tabelData.
+  buildChart(filteredData);
+}
+
+// Attach  an event to listen for the form button
+d3.selectAll("#filter-btn").on("click", handleClick);
+
+// Build the table when the page loads
+buildChart(tableData);
