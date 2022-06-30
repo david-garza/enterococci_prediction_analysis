@@ -11,3 +11,11 @@ body {
       text-align: center;
     }
 
+
+    footer {
+      background-color: #2a4560;
+      color: #fff;
+      display: flex;
+      align-items: flex-start;
+    }
+    
