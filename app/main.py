@@ -1,3 +1,4 @@
+from unittest import result
 from flask import Flask, flash, redirect, render_template, request, url_for
 
 app = Flask(__name__)
@@ -6,12 +7,16 @@ app = Flask(__name__)
 def index():
     return render_template(
         'index.html',
-        data=[{'name':'red'}, {'name':'green'}, {'name':'blue'}])
+        dates=[{'name':'red'}, {'name':'green'}, {'name':'blue'}])
 
 @app.route("/test" , methods=['GET', 'POST'])
 def test():
     if request.method == 'POST':
-        select = request.form.get('comp_select')
-        return (str(select))
+        date_select = request.form.get('date_select')
+        beach_select = request.form.get('beach_select')
+
+        response = str(date_select) + ' ' + str(beach_select)
+        
+        return (str(response))
     
     
