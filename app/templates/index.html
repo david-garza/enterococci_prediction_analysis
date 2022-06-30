@@ -36,16 +36,33 @@
             <h5>Select a Date:</h5>
             
             <select name="date_select">
-              {% for d in dates %}
+              {% for d in data %}
               <option value="{{ d.name }}">{{ d.name }}</option>
               {% endfor %}
             </select>
 
+            <!-- Beach locations had to be hard coded in, don't know to send two drop down menus from flask -->
+            <h5>Select a Beach Location:</h5>
             <select name="beach_select">
               
-              <option value="GALV043">45th ST.</option>
-              <option value="GALV044">61st ST.</option>
               
+              <option value="GAL034">61st St. : 60th St.</option>
+              <option value="GAL035">61st St. : 57th St.</option>
+              <option value="GAL036">61st St. : 53rd St.</option>
+              <option value="GAL037">45th St. : Fort Crockett Seawall Park West</option>
+              <option value="GAL038">45th St. : Fort Crockett Seawall Park</option>
+              <option value="GAL039">45th St. : Beach Plaza Shopping Center</option>
+              <option value="GAL040">45th St. : 39th St.</option>
+              <option value="GAL041">45th St. : 35th St.</option>
+              <option value="GAL042">45th St. : 31st/32nd Streets</option>
+              <option value="GAL044">25th St. : Pleasure Pier / 27th St.</option>
+              <option value="GAL045">25th St. : East of Pleasure Pier</option>
+              <option value="GAL046">25th St. : 18th/19th Streets</option>
+              <option value="GAL047">25th St. : 14th/15th Streets</option>
+              <option value="GAL048">Stewart Beach : Stewart Beach #1</option>
+              <option value="GAL049">Stewart Beach : Stewart Beach #2</option>
+              <option value="GAL050">Stewart Beach : Stewart Beach #3</option>
+
             </select>
           
             <button type="submit" class="btn btn-default">Go</button>
