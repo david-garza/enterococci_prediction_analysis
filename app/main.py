@@ -1,11 +1,11 @@
 from flask import Flask, redirect, render_template, request, url_for
-from .drop_down_list_setup import data_return
+from .drop_down_list_setup import get_dates_list
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    data = data_return()
+    data = get_dates_list()
     return render_template('index.html',data=data)
 
 @app.route("/predict" , methods=['GET', 'POST'])
