@@ -9,7 +9,7 @@ $(function() {/* w ww. j  a  v a 2s. c om*/
       plotShadow: false
     },
     title: {
-      text: 'Speedometer'
+      text: 'Bacteria Risk Level'
     },
     pane: {
       startAngle: -90,
@@ -37,41 +37,34 @@ $(function() {/* w ww. j  a  v a 2s. c om*/
         distance: 20,
         formatter: function() {
           var value = this.value, string;
-          if (value < 33) {
-            string = 'normal'
-          } else if (value < 66) {
-            string = 'heavy'
-          } else if (value < 100) {
-            string = 'warning'
-          } else string = 'critical';
+          if (value < 50) {
+            string = 'Safe'   
+          } else if (value > 50) {
+            string = 'Unsafe';
+          }
           return string;
         }
       },
       tickPosition: 'outside',
-      tickPositions: [0, 33, 66, 100],
+      tickPositions: [0, 50, 100],
       minorTickLength: 0,
       min: 0,
       max: 100,
       plotBands: [{
         from: 0,
-        to: 25,
-        color: 'rgb(192, 0, 0)', // red
-        thickness: '50%'
-      }, {
-        from: 25,
-        to: 75,
-        color: 'rgb(255, 192, 0)', // yellow
-        thickness: '50%'
-      }, {
-        from: 75,
-        to: 100,
+        to: 50,
         color: 'rgb(155, 187, 89)', // green
+        thickness: '50%'
+      }, {
+        from: 50,
+        to: 100,
+        color: 'rgb(192, 0, 0)', // red
         thickness: '50%'
       }]
     },
     series: [{
       name: 'Speed',
-      data: [80]
+      data: [1]
     }]
-});
+  });
 });
