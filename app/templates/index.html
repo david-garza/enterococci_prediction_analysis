@@ -26,8 +26,6 @@
         </font>
       </div>
     </div>
-    <p>test. </p>
-    
     <div class="row">
       <div class="col-md-2">
         <!-- A <div> belonging to the well class contains a dropdown menu with an id of selDataset. -->
@@ -38,18 +36,24 @@
           <!-- When a change takes place in the dropdown menu, the optionChanged() function is called. -->
           <!-- The argument for theoptionChanged() function is this.value. -->
           <!-- Here, this refers to the dropdown menu. this.value therefore returns to the value attribute of the current dropdown menu selection. -->
-          <select id="selDataset" onchange="optionChanged(this.value)">
-            {% for c in colors %}
-              <option value={{c.name}}>{{c.name}}</option>
-            {% endfor %}
-          </select>
+          <form method="POST" action="{{ url_for('test') }}">
+            <select name="comp_select">
+              {% for o in data %}
+              <option value="{{ o.name }}">{{ o.name }}</option>
+              {% endfor %}
+            </select>
+          
+            <button type="submit" class="btn btn-default">Go</button>
+          </form>
         </div>
         <div class="panel panel-primary">
           <div class="panel-heading" style= background-color:rgb(47,151,111)>
             <h3 class="panel-title">Water Quality Info</h3>
           </div>
           <!-- A <div> with an id of sample-metadata is the information panel. -->
-          <div id="sample-metadata" class="panel-body" style= background-color:#add8e679></div>
+          <div id="sample-metadata" class="panel-body" style= background-color:#add8e679>
+          <p>{{select}}</p>
+          </div>
         </div>
       </div>
       <div class="col-md-9">

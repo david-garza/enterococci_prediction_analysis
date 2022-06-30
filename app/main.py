@@ -1,12 +1,17 @@
-from flask import Flask, render_template
+from flask import Flask, flash, redirect, render_template, request, url_for
 
 app = Flask(__name__)
 
-
-
-@app.route("/")
+@app.route('/')
 def index():
-    colors = [{"name":"red"},
-        {"name":"green"},
-        {"name":"blue"}]
-    return render_template("index.html",colors=colors)
+    return render_template(
+        'index.html',
+        data=[{'name':'red'}, {'name':'green'}, {'name':'blue'}])
+
+@app.route("/test" , methods=['GET', 'POST'])
+def test():
+    if request.method == 'POST':
+        select = request.form.get('comp_select')
+        return (str(select))
+    
+    
