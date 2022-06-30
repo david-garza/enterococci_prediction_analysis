@@ -1,15 +1,12 @@
 from flask import Flask, redirect, render_template, request, url_for
+from .drop_down_list_setup import data_return
 
 app = Flask(__name__)
 
-
-data = [{'name':'red'}, {'name':'green'}, {'name':'blue'}]
-
 @app.route('/')
 def index():
-    return render_template(
-        'index.html',
-        data=data)
+    data = data_return()
+    return render_template('index.html',data=data)
 
 @app.route("/test" , methods=['GET', 'POST'])
 def test():
