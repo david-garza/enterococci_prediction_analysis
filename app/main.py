@@ -8,7 +8,7 @@ def index():
     data = data_return()
     return render_template('index.html',data=data)
 
-@app.route("/test" , methods=['GET', 'POST'])
+@app.route("/predict" , methods=['GET', 'POST'])
 def test():
     if request.method == 'POST':
         date_select = request.form.get('date_select')
