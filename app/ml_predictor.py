@@ -14,8 +14,8 @@ from flask import jsonify
 def predictor(input):
     # Needed for path names to model files
     # absolute path to this file
-    FILE_DIR = os.path.dirname(os.path.abspath(__file__)) 
-
+    # FILE_DIR = os.path.dirname(os.path.abspath(__file__)) 
+    FILE_DIR = os.path.dirname(os.path.realpath(__file__))
     # Set URL for API call
     url ="https://www.ncei.noaa.gov/access/past-weather/USW00012923/data.json"
 
