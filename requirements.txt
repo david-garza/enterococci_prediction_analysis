@@ -2,3 +2,5 @@ gunicorn
 flask
 requests
 pandas
+datetime
+joblib
