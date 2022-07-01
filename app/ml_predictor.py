@@ -101,10 +101,10 @@ def predictor(input):
     input_row[station_column]=1
 
     # Load Machine models needed for scaling, model, and labelencoding
-    scaler = load('scale4.joblib')
-    ada_model = load('ada4_model.joblib')
-    le = load('labelencoder.joblib')
-
+    scaler = load('/Users/David/Git/final_project/app/static/models/scale4.joblib')
+    ada_model = load('/Users/David/Git/final_project/app/static/models/ada4_model.joblib')
+    le = load('/Users/David/Git/final_project/app/static/models/labelencoder.joblib')
+    
     # Scale the input data to match what ML expects
     input_row_scaled = scaler.transform(input_row)
 
