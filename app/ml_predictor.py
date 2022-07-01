@@ -4,6 +4,7 @@ import pandas as pd
 from datetime import datetime
 from joblib import load
 import os
+from flask import jsonify
 
 # This model expects a dictionary input of 
 # input = {'date_index': 16998, 'station_id': 'GAL048'}
@@ -111,7 +112,10 @@ def predictor(input):
     le_path=os.path.join(FILE_DIR,'static','models','labelencoder.joblib')
 
     # Load Machine models needed for scaling, model, and labelencoding
-    scaler = load(scaler_path)
+    try:
+        scaler = load(scaler_path)
+    except:
+        return jsonify({'error':'Failed to load model'})
     ada_model = load(model_path)
     le = load(le_path)
     
