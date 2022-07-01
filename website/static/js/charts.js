@@ -37,9 +37,9 @@ $(function() {/* w ww. j  a  v a 2s. c om*/
         distance: 20,
         formatter: function() {
           var value = this.value, string;
-          if (value == 1) {
+          if (value < 50) {
             string = 'Safe'   
-          } else if (value == 0) {
+          } else if (value > 50) {
             string = 'Unsafe';
           }
           return string;
@@ -64,7 +64,7 @@ $(function() {/* w ww. j  a  v a 2s. c om*/
     },
     series: [{
       name: 'Speed',
-      data: [1]
+      data: [75]
     }]
   });
 });

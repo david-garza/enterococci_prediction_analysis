@@ -1,7 +1,7 @@
 
 body {
 
-    background-color:#41bad841;
+    background-color: white;
   }
   
   
@@ -17,5 +17,13 @@ body {
       color: #fff;
       display: flex;
       align-items: flex-start;
+      text-align: center;
+      vertical-align: bottom;
     }
     
+    .social_icon {
+      background-color: #2f4f6f
+
+    }
+
+
