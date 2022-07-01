@@ -112,10 +112,7 @@ def predictor(input):
     le_path=os.path.join(FILE_DIR,'static','models','labelencoder.joblib')
 
     # Load Machine models needed for scaling, model, and labelencoding
-    try:
-        scaler = load(scaler_path)
-    except:
-        return jsonify({'error':'Failed to load model'})
+    scaler = load(scaler_path)
     ada_model = load(model_path)
     le = load(le_path)
     
