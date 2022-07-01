@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 from datetime import datetime
 from joblib import load
+import os
 
 # This model expects a dictionary input of 
 # input = {'date_index': 16998, 'station_id': 'GAL048'}
@@ -10,6 +11,10 @@ from joblib import load
 # {'prediction_label': 'low_risk', 'prediction_value': 25}
 
 def predictor(input):
+    # Needed for path names to model files
+    # absolute path to this file
+    FILE_DIR = os.path.dirname(os.path.abspath(__file__)) 
+
     # Set URL for API call
     url ="https://www.ncei.noaa.gov/access/past-weather/USW00012923/data.json"
 
@@ -100,10 +105,15 @@ def predictor(input):
     station_column = 'station_id_'+input['station_id']
     input_row[station_column]=1
 
+    # Build paths to the files locations
+    scaler_path=os.path.join(FILE_DIR,'static','models','scale4.joblib')
+    model_path=os.path.join(FILE_DIR,'static','models','ada4_model.joblib')
+    le_path=os.path.join(FILE_DIR,'static','models','labelencoder.joblib')
+
     # Load Machine models needed for scaling, model, and labelencoding
-    scaler = load('/Users/David/Git/final_project/app/static/models/scale4.joblib')
-    ada_model = load('/Users/David/Git/final_project/app/static/models/ada4_model.joblib')
-    le = load('/Users/David/Git/final_project/app/static/models/labelencoder.joblib')
+    scaler = load(scaler_path)
+    ada_model = load(model_path)
+    le = load(le_path)
     
     # Scale the input data to match what ML expects
     input_row_scaled = scaler.transform(input_row)
