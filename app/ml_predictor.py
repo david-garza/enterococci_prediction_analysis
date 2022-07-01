@@ -2,9 +2,9 @@
 import requests
 import pandas as pd
 from datetime import datetime
-from joblib import load
+import joblib 
 import os
-from flask import jsonify
+
 
 # This model expects a dictionary input of 
 # input = {'date_index': 16998, 'station_id': 'GAL048'}
@@ -14,19 +14,17 @@ from flask import jsonify
 def predictor(input):
     # Needed for path names to model files
     # absolute path to this file
-    # FILE_DIR = os.path.dirname(os.path.abspath(__file__)) 
-    FILE_DIR = os.path.dirname(os.path.realpath(__file__))
+    FILE_DIR = os.path.dirname(os.path.abspath(__file__)) 
+    # FILE_DIR = os.path.dirname(os.path.realpath(__file__))
     # Set URL for API call
     url ="https://www.ncei.noaa.gov/access/past-weather/USW00012923/data.json"
 
     # Call the API and set the data
-    try:
-        weather_data = requests.get(url)
-        weather_data = weather_data.json()
-        weather_data = weather_data['data']
-        weather_data_df = pd.DataFrame(weather_data)
-    except:
-        return ("weather data could not be reached")
+    
+    weather_data = requests.get(url)
+    weather_data = weather_data.json()
+    weather_data = weather_data['data']
+    weather_data_df = pd.DataFrame(weather_data)
     
     # Process the returned data
     weather_data_df = weather_data_df.transpose()
@@ -112,9 +110,9 @@ def predictor(input):
     le_path=os.path.join(FILE_DIR,'static','models','labelencoder.joblib')
 
     # Load Machine models needed for scaling, model, and labelencoding
-    scaler = load(scaler_path)
-    ada_model = load(model_path)
-    le = load(le_path)
+    scaler = joblib.load(scaler_path)
+    ada_model = joblib.load(model_path)
+    le = joblib.load(le_path)
     
     # Scale the input data to match what ML expects
     input_row_scaled = scaler.transform(input_row)
