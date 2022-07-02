@@ -1,6 +1,6 @@
 /* Add d3 to select drop items form frontend */
 var curRoot = window.location.href;
-var predictURL = `${curRoot}prediction`;
+var predictURL = `${curRoot}predict`;
 var xhttpReq = new XMLHttpRequest();
 xhttpReq.open("POST", predictURL, true);
 xhttpReq.setRequestHeader('Content-type', 'application/json');
@@ -14,7 +14,7 @@ xhttpReq.onreadystatechange = function () {
         .innerText = JSON.parse(xhttpReq.responseText)['prediction_value']; /*Key inside the json object so value would be prediction_value */
       /* Add chart JavaScript here*/
       $(function () {/* w ww. j  a  v a 2s. c om*/
-        $('#container').highcharts({
+        $('#gauge').highcharts({
           chart: {
             type: 'gauge',
             plotBackgroundColor: null,
@@ -78,7 +78,8 @@ xhttpReq.onreadystatechange = function () {
           },
           series: [{
             name: 'Speed',
-            data: []
+            data: [25]
+            /*data: [parseInt(xhttpReq.responseText['prediction_value'])]*/
           }]
         });
       });
@@ -89,7 +90,7 @@ xhttpReq.onreadystatechange = function () {
 };
 xhttpReq.onerror = err => console.log(`Send Request Error:\n${err}`);
 var sendPkg = {
-  date_index: 16998,
+  date_index: "16998",
   station_id: "GAL048"
 };
 xhttpReq.send(JSON.stringify(sendPkg));

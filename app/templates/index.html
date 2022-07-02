@@ -110,7 +110,9 @@
                       </select>
                     </li>
                     <li class="list-group-item bg dark">
-                      <button id="filter-btn" type="button" class="btn btn-dark">PREDICT</button>
+                      <form action="" method="post">
+                        <button id="post-btn" type="button" class="btn btn-dark">PREDICT</button>
+                      </form>
                       <input class="hide" type="text" id="textInput" value="..." />
                   </li>
               </ul>
@@ -121,8 +123,8 @@
     </div>
           <div class="col-md-1"></div>
          <div class="col-md-4">
-        <div id="container" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto">
-        <!-- insert jinja code for second page -->
+        <div id="gauge" style="min-width: 310px; max-width: 400px; height: 300px; margin: 0 auto">
+          
         </div>  
         <br>
         <br>
@@ -134,7 +136,8 @@
 <br>
 <br>
 <br>
-
+<!-- div to hold return of value from flask -->
+<div id="resultPrediction"></div>
 
 <div class="container-fluid" style="background-color:#41bad841">
   <div class="row">

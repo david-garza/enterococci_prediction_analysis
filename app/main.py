@@ -24,7 +24,7 @@ def predict():
         app.logger.debug("%s <<=== received debug from postman :: ", request_from_js)
         
         prediction = predictor(request_from_js)
-        return render_template('results.html',prediction=prediction)
+        return render_template("results.html",prediction=prediction)
     else:
         return "Nothing to return"
 if __name__=="__main__":
