@@ -1,5 +1,4 @@
 
-var prediction = JSON.parse('{{ prediction | tojson | safe}}');
 $(function() {/* w ww. j  a  v a 2s. c om*/
   $('#container').highcharts({
     chart: {
@@ -65,7 +64,7 @@ $(function() {/* w ww. j  a  v a 2s. c om*/
     },
     series: [{
       name: 'Speed',
-      data: prediction.prediction_value
+      data: [75]
     }]
   });
 });
