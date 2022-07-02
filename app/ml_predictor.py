@@ -4,6 +4,7 @@ import pandas as pd
 from datetime import datetime
 import joblib 
 import os
+import sklearn
 
 
 # This model expects a dictionary input of 
