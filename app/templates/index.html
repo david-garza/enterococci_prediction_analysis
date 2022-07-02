@@ -8,7 +8,7 @@
       <title>Water Quality Galveston Island Beaches</title>
       <!--link to the Bootstrap CDN -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" href="static/css/style.css">
+      <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
       <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script> 
       <!-- Font Awesome -->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -27,7 +27,7 @@
     <!-- When the viewing area is reduced from a large to a smaller screen, the navbar will collapse or resize itself smoothly. -->
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
         <!-- add functionality to the navbar by linking to the homepage, index.html. -->
-        <a style="font-size:20px" class="navbar-brand" href="index.html">Water Quality on Gavelston Island Beaches</a>
+        <a style="font-size:20px" class="navbar-brand" href="/">Water Quality on Gavelston Island Beaches</a>
     </nav>
     <div class="jumbotron">
         <font color ="white">
@@ -76,15 +76,38 @@
                    <!-- Date -->
                   <li class="list-group-item bg-dark">
                       <!-- add the label tag that serves as the caption for the date item -->
-                      <label for="datetime">Select Date</label>
+                      <label for="date">Select Date</label>
                       <br>
-                      <select id="selDataset1" onchange="optionChanged(this.value)"></select>
+                      <select id="date_select" onchange="optionChanged(this.value)">
+                        {% for d in data %}
+                          <option value="{{ d.index }}">{{ d.date }}</option>
+                        {% endfor %}
+                      </select>
                     </li>
                   <!-- Beach Name -->
                   <li class="list-group-item bg-dark">
-                      <label for="state">Select Beach Name</label>
+                      <label for="station">Select Beach Name</label>
                       <br>
-                      <select id="selDataset2" onchange="optionChanged(this.value)"></select>
+                      <select id="beach_select" onchange="optionChanged(this.value)">
+                        
+                        <option value="GAL034">61st St. : 60th St.</option>
+                        <option value="GAL035">61st St. : 57th St.</option>
+                        <option value="GAL036">61st St. : 53rd St.</option>
+                        <option value="GAL037">45th St. : Fort Crockett Seawall Park West</option>
+                        <option value="GAL038">45th St. : Fort Crockett Seawall Park</option>
+                        <option value="GAL039">45th St. : Beach Plaza Shopping Center</option>
+                        <option value="GAL040">45th St. : 39th St.</option>
+                        <option value="GAL041">45th St. : 35th St.</option>
+                        <option value="GAL042">45th St. : 31st/32nd Streets</option>
+                        <option value="GAL044">25th St. : Pleasure Pier / 27th St.</option>
+                        <option value="GAL045">25th St. : East of Pleasure Pier</option>
+                        <option value="GAL046">25th St. : 18th/19th Streets</option>
+                        <option value="GAL047">25th St. : 14th/15th Streets</option>
+                        <option value="GAL048">Stewart Beach : Stewart Beach #1</option>
+                        <option value="GAL049">Stewart Beach : Stewart Beach #2</option>
+                        <option value="GAL050">Stewart Beach : Stewart Beach #3</option>
+
+                      </select>
                     </li>
                     <li class="list-group-item bg dark">
                       <button id="filter-btn" type="button" class="btn btn-dark">PREDICT</button>
@@ -139,8 +162,14 @@
           <div class="col-md-8">
                <!-- add the article paragraph -->
                <p style="font-size: 18px; color:rgb(25, 68, 108)" align="justify" >
-                   Add article and reference to it. Add article and reference to it. Add article and reference to it. <br><br> Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it.<br><br> Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. <br><br> Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it.<br><br> Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it. Add article and reference to it.
-                  <br>
+                   The thesis of this project is that Enterococci bacteria levels can be predicted using seasonality, beach location, and the previous 5 days weather conditions. Currently, it is believed that bacteria are 
+                   washed into by rain runoff. A source bacteria source, such as an open sewer or agricultural site, must exist on land to produc the bacteria. This model does not take into account sources and therefore it
+                   isn't a perfect predictor of bacteria levels. The balanced accuracy of the chosen model is 67%. Models with additional weather data can reach accuracies of 75%!
+                   <br>
+                   The model uses the most recent weather data from Scholes Field, the Galveston Island airport. To improve accuracy, the model has been restricted to the 4 city beaches along the Galveston urban area. 
+                   These beaches are Stewart Beach, 25th St, 45th St, and 61st St. You can select specific areas along each beach.
+                   <br>
+                   Additional information about beach bacteria and its causes can be found in the Texas Monthly Article <a href="https://www.texasmonthly.com/news-politics/texas-beaches-filthy-feces-testing/">Texas Beaches May Be Filthier Than We Realize</a>.
               </p>
           </div>
       </div>
@@ -236,7 +265,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script src="static/js/charts.js"></script>
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script> 
 <script src="https://code.highcharts.com/highcharts-more.js"></script> 
 <script src="https://code.highcharts.com/modules/exporting.js"></script> 
