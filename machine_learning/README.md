@@ -8,11 +8,11 @@ Files in this folder
 
 ## Preliminary Data Preprocessing
 
-Several attempts at preprocessing were attempted because several different types of models were used to predict the bacteria counts, regression,  or risk level, classifier.
+Several attempts at preprocessing were attempted because several different types of models were used to predict the bacteria counts, regression,  or risk level, and  classifier.
 
 ### Encoding
 
-Features that were strings such as beach name or station name had to be encoded. The pandas method get_dummies() was applied to these bariables to transform them into binary categories.
+Features that were strings such as beach name or station name had to be encoded. The pandas method get_dummies() was applied to these variables to transform them into binary categories.
 
 Encoding was used in both the regression and classifier models.
 
@@ -22,24 +22,24 @@ Encoding was used in both the regression and classifier models.
 
 Initial models attempted to predict the bacteria counts using linear regression models. This immediately required scaling the features data using the standardscaler() function from sklearn.
 
-The target variable distribution skewed hard right. Attempts to transform the target variable via log transforamtion improved R-squared but not significantly.
+The target variable distribution skewed hard right. Attempts to transform the target variable via log transforamtion improved R-squared, but not significantly.
 
 ### Classifier Models
 
-Standard scaler was still applied to the input features, but no longer needed for the target variable.
+Standard scaler was still applied to the input features, but was no longer needed for the target variable.
 
 ## Preliminary Feature Engineering and Selection
 
 ### Feature Selection
 
-Initial research suggested that E. Coli contamination occurs when rain falls onto land based sources and the run off flows into the ocean. 
+Initial research suggested that Enterococci contamination occurs when rain falls onto land based sources and the run off flows into the ocean. 
 
 To model runoff as best as possible, the following features were included:
 - Precipitation from several weather stations as a proxy for specific location rain run off.
 - Temperature as a proxy for bacteria grow rate, assuming that bacteria grow faster in warmer weather.
 - Beach sample station ids, as a proxy for beach locations.
 
-Later exploratory analysis, would lead to subsetting the beaches that were closets to the statiosn that recorded precipitation. This filtering improved the balanced accuracy of the classifier models.
+Later, exploratory analysis, would lead to subsetting the beaches that were closets to the weather stations that recorded precipitation. This filtering improved the balanced accuracy of the classifier models.
 
 ### Feature Engineering
 
@@ -57,7 +57,7 @@ Including the past temperature and precipitation data improved the balanced accu
 
 Switching to a classifier model improved the accuracy of the model. Initially, the models attempted to classify the target variable into low, medium, and high risk. 
 
-The target variable was reduced to two levels low risk and risky, a bucket of medium and high risk. This bucketing of the target variable imporved the balanced accuracy of the models.
+The target variable was reduced to two levels, low risk and risky, a bucket of medium and high risk. This bucketing of the target variable imporved the balanced accuracy of the models.
 
 ## Training and Testing Split
 
