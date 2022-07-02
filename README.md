@@ -2,11 +2,11 @@
 
 ## Problem
 
-Texas beaches are a great place to relax and have fun, but there are potential dangers in the water. Bacteria levels can exceed safe levels causing the state to close beaches and loss of revenue for locals or at worst make bathers sick. 
+Texas beaches are a great place to relax and have fun, but there are potential dangers in the water. Bacteria levels can exceed safe levels causing the state to close beaches, loss of revenue for locals, or most siverly, make bathers sick. 
 
 The state currently tests and reports bacteria levels for several beaches and displays bacteria counts at [TexasBeachWatch.com](https://cgis.glo.texas.gov/Beachwatch/#).
 
-The problem is that testing occurs weekly or biweekly, there is a delay time of at least three if not more days from when the sample is taken and finally reported to the public. By the time results come back, bacteria levels may have risen to unsafe levels.
+The problem is that testing occurs weekly or biweekly, there is a delay of at least three days from when the sample is taken to when the results are finalized and published to the public. Bacteria levels may have risen to unsafe levels during the time delay.
 
 ## Proposal
 
