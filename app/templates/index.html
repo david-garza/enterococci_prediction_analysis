@@ -163,12 +163,12 @@
                <!-- add the article paragraph -->
                <p style="font-size: 18px; color:rgb(25, 68, 108)" align="justify" >
                    The thesis of this project is that Enterococci bacteria levels can be predicted using seasonality, beach location, and the previous 5 days weather conditions. Currently, it is believed that bacteria are 
-                   washed into by rain runoff. A source bacteria source, such as an open sewer or agricultural site, must exist on land to produc the bacteria. This model does not take into account sources and therefore it
+                   washed into the sea by rain runoff. A bacteria source, such as an open sewer or agricultural site, must exist on land to produce the bacteria. This model does not take into account sources and therefore it
                    isn't a perfect predictor of bacteria levels. The balanced accuracy of the chosen model is 67%. Models with additional weather data can reach accuracies of 75%!
-                   <br>
+                   <br><br>
                    The model uses the most recent weather data from Scholes Field, the Galveston Island airport. To improve accuracy, the model has been restricted to the 4 city beaches along the Galveston urban area. 
                    These beaches are Stewart Beach, 25th St, 45th St, and 61st St. You can select specific areas along each beach.
-                   <br>
+                   <br><br>
                    Additional information about beach bacteria and its causes can be found in the Texas Monthly Article <a href="https://www.texasmonthly.com/news-politics/texas-beaches-filthy-feces-testing/">Texas Beaches May Be Filthier Than We Realize</a>.
               </p>
           </div>
@@ -266,6 +266,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/GetPushData.js') }}"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script> 
 <script src="https://code.highcharts.com/highcharts-more.js"></script> 
 <script src="https://code.highcharts.com/modules/exporting.js"></script> 
