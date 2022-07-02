@@ -1,30 +1,30 @@
+# Jinga version
 from flask import Flask, redirect, render_template, request, url_for
-from logging.config import dictConfig
-import logging
-from time import sleep
-
-# Custom packages
 from .drop_down_list_setup import get_dates_list
 from .ml_predictor import predictor
 
 app = Flask(__name__)
 
+# Create and empty dictionary
+data={}
+prediction={'prediction_label': '', 'prediction_value': 0}
+
 @app.route('/')
 def index():
     data = get_dates_list()
-    return render_template('index.html',data=data)
+    return render_template('index_bianca_jinga.html',data=data,prediction=prediction)
 
 @app.route("/predict" , methods=['GET','POST'])
 def predict():
     if request.method == 'POST':
-        request_from_js = request.get_json()
-        while not request_from_js:
-            sleep(1)       # code is running faster than flask can received response. Use sleep to wait for flask to get the package from postman or JS http request
-        app.logger.debug("%s <<=== received debug from postman :: ", request_from_js)
-        
-        response = predictor(request_from_js)
-        return render_template('results.html',response=response)
-    else:
-        return "Nothing to return"
-if __name__=="__main__":
-    app.run(debug=True)
+        date_index = request.form.get('date_select')
+        station_id = request.form.get('beach_select')
+
+        # Create expected dictionary for function
+        # input = {'date_index': date_index, 'station_id': station_id}
+
+        input = {'date_index': int(date_index), 'station_id': station_id}
+        prediction = predictor(input)
+
+        return redirect('/',data=data,prediction=prediction)
+        # return render_template('results.html',prediction=prediction)
