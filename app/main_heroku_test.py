@@ -22,7 +22,7 @@ def predict():
         # Create expected dictionary for function
         # input = {'date_index': date_index, 'station_id': station_id}
 
-        input = {'date_index': int(date_index), 'station_id': station_id}
+        input = {'date_index': date_index, 'station_id': station_id}
         prediction = predictor(input)
 
         return redirect('/',data=data,prediction=prediction)

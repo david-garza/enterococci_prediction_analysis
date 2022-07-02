@@ -99,7 +99,7 @@ def predictor(input):
     ##### Machine Learning Model Execution #########
 
     # Select row by date index
-    input_row=weather_data_df.loc[[input['date_index']]]
+    input_row=weather_data_df.loc[[int(input['date_index'])]]
 
     # Set the proper beach station location using user input
     station_column = 'station_id_'+input['station_id']
