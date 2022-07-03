@@ -1,4 +1,10 @@
+# JaveScript Version
 from flask import Flask, redirect, render_template, request, url_for
+from logging.config import dictConfig
+import logging
+from time import sleep
+
+# Custom packages
 from .drop_down_list_setup import get_dates_list
 from .ml_predictor import predictor
 
@@ -12,19 +18,17 @@ def index():
 @app.route("/predict" , methods=['GET','POST'])
 def predict():
     if request.method == 'POST':
-        date_index = request.form.get('date_select')
-        station_id = request.form.get('beach_select')
+        request_from_js = request.get_json()
+        while not request_from_js:
+            sleep(1)       # code is running faster than flask can received response. Use sleep to wait for flask to get the package from postman or JS http request
+        app.logger.debug("%s <<=== received debug from postman :: ", request_from_js)
+        
+        # Data for testing flask to JS communications
+        # prediction = {'prediction_label': 'low_risk', 'prediction_value': 42}
 
-        # Create expected dictionary for function
-        # input = {'date_index': date_index, 'station_id': station_id}
-
-        input = {'date_index': int(date_index), 'station_id': station_id}
-        prediction = predictor(input)
-        return render_template('results.html',prediction=prediction)
-
-
-    # request_from_js = request.get_json()
-    # return request_from_js
-
-# if __name__=="__main__":
-#     app.run(debug=True)
+        prediction = predictor(request_from_js)
+        return prediction
+    else:
+        return "Nothing to return"
+if __name__=="__main__":
+    app.run(debug=True)

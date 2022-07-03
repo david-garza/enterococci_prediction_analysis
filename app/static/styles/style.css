@@ -1,7 +1,7 @@
 
 body {
 
-    background-color:#41bad841;
+    background-color: white;
   }
   
   
@@ -10,3 +10,20 @@ body {
       background-size: 100% 100%;
       text-align: center;
     }
+
+
+    footer {
+      background-color: #2a4560;
+      color: #fff;
+      display: flex;
+      align-items: flex-start;
+      text-align: center;
+      vertical-align: bottom;
+    }
+    
+    .social_icon {
+      background-color: #2f4f6f
+
+    }
+
+

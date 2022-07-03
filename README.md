@@ -64,4 +64,6 @@ Draft dashboard is a website that allows users to interactively explore the data
 
 Information can be found in the [website folder](website).
 
+# Interactive Website
 
+[Beach Bacteria Risk Prediction](https://dev-bacteria.herokuapp.com/)
