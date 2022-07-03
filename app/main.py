@@ -23,6 +23,9 @@ def predict():
             sleep(1)       # code is running faster than flask can received response. Use sleep to wait for flask to get the package from postman or JS http request
         app.logger.debug("%s <<=== received debug from postman :: ", request_from_js)
         
+        # Data for testing flask to JS communications
+        # prediction = {'prediction_label': 'low_risk', 'prediction_value': 42}
+
         prediction = predictor(request_from_js)
         return prediction
     else:
