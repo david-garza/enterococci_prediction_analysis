@@ -110,11 +110,9 @@
                       </select>
                     </li>
                     <li class="list-group-item bg dark">
-                      <form action="" method="post">
-                        <button id="post-btn" type="button" class="btn btn-dark">PREDICT</button>
-                        <input class="hide" type="text" id="textInput" value="..." />
-                      </form>
-                      
+                        <!-- Button to update the prediction values -->
+                        <button type="button" class="btn btn-dark" onclick="update_prediction()">PREDICT</button>
+                        <p>Press button once! Takes about 15 seconds to update prediction. Guage will reset when prediction is updated!</p>
                   </li>
               </ul>
           </form>
