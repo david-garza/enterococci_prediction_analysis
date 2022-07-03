@@ -1,4 +1,6 @@
 /* Add d3 to select drop items form frontend */
+var date = d3.selectAll("#date_select").node();
+var beach = d3.selectAll("#beach_select").node();
 var curRoot = window.location.href;
 var predictURL = `${curRoot}predict`;
 var xhttpReq = new XMLHttpRequest();
@@ -11,7 +13,7 @@ xhttpReq.onreadystatechange = function () {
       // The request has been completed successfully
       console.log("this is my prediction :: ", xhttpReq.responseText); /* responseText is the return from flask */
       document.getElementById("resultPrediction") /* set this on the index page to return the data */
-        .innerText = JSON.parse(xhttpReq.responseText)['prediction_value']; /*Key inside the json object so value would be prediction_value */
+        .innerText = JSON.parse(xhttpReq.responseText).prediction_value; /*Key inside the json object so value would be prediction_value */
       /* Add chart JavaScript here*/
       $(function () {/* w ww. j  a  v a 2s. c om*/
         $('#gauge').highcharts({
@@ -78,8 +80,7 @@ xhttpReq.onreadystatechange = function () {
           },
           series: [{
             name: 'Speed',
-            data: [25]
-            /*data: [parseInt(xhttpReq.responseText['prediction_value'])]*/
+            data: [JSON.parse(xhttpReq.responseText).prediction_value]
           }]
         });
       });
@@ -90,8 +91,8 @@ xhttpReq.onreadystatechange = function () {
 };
 xhttpReq.onerror = err => console.log(`Send Request Error:\n${err}`);
 var sendPkg = {
-  date_index: "16998",
-  station_id: "GAL048"
+  date_index: date.value,
+  station_id: beach.value
 };
 xhttpReq.send(JSON.stringify(sendPkg));
 console.log("===>JSON :: ", JSON.stringify(sendPkg))

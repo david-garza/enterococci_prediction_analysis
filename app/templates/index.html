@@ -78,7 +78,7 @@
                       <!-- add the label tag that serves as the caption for the date item -->
                       <label for="date">Select Date</label>
                       <br>
-                      <select id="date_select" onchange="optionChanged(this.value)">
+                      <select id="date_select">
                         {% for d in data %}
                           <option value="{{ d.index }}">{{ d.date }}</option>
                         {% endfor %}
@@ -88,7 +88,7 @@
                   <li class="list-group-item bg-dark">
                       <label for="station">Select Beach Name</label>
                       <br>
-                      <select id="beach_select" onchange="optionChanged(this.value)">
+                      <select id="beach_select">
                         
                         <option value="GAL034">61st St. : 60th St.</option>
                         <option value="GAL035">61st St. : 57th St.</option>
@@ -112,8 +112,9 @@
                     <li class="list-group-item bg dark">
                       <form action="" method="post">
                         <button id="post-btn" type="button" class="btn btn-dark">PREDICT</button>
+                        <input class="hide" type="text" id="textInput" value="..." />
                       </form>
-                      <input class="hide" type="text" id="textInput" value="..." />
+                      
                   </li>
               </ul>
           </form>
