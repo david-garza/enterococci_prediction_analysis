@@ -57,7 +57,8 @@ A detailed write up of the machine learning model evolution can be found [here](
 
 ### GSlides
 
-The slide presentation can be found [here](https://docs.google.com/presentation/d/1el09AXHnyRaLuhO7MKxmYrAIeOkY54n6twwczkmwBEo/edit?usp=sharing).
+The slide presentation can be found [here](https://docs.google.com/presentation/d/1l1fdoL8GUWv0qLcuOysJgEIfUM9kBrUXE-PbyCMR5WQ/edit?usp=sharing).
+
 ### Dashboard
 
 Draft dashboard is a website that allows users to interactively explore the data.
