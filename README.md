@@ -59,12 +59,6 @@ A detailed write up of the machine learning model evolution can be found [here](
 
 The slide presentation can be found [here](https://docs.google.com/presentation/d/1l1fdoL8GUWv0qLcuOysJgEIfUM9kBrUXE-PbyCMR5WQ/edit?usp=sharing).
 
-### Dashboard
-
-Draft dashboard is a website that allows users to interactively explore the data.
-
-Information can be found in the [website folder](website).
-
 # Interactive Website
 
 [Beach Bacteria Risk Prediction](https://dev-bacteria.herokuapp.com/)
