@@ -79,7 +79,7 @@ xhttpReq.onreadystatechange = function () {
             }]
           },
           series: [{
-            name: 'Speed',
+            name: 'Risk Level',
             data: [JSON.parse(xhttpReq.responseText).prediction_value]
           }]
         });
@@ -179,7 +179,7 @@ function update_prediction() {
               }]
             },
             series: [{
-              name: 'Speed',
+              name: 'Risk Level',
               data: [JSON.parse(xhttpReq.responseText).prediction_value]
             }]
           });
