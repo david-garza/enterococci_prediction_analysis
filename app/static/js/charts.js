@@ -1,11 +1,17 @@
-/* Add d3 to select drop items form frontend */
+/* Get inputs from drop down menus */
 var date = d3.selectAll("#date_select").node();
 var beach = d3.selectAll("#beach_select").node();
+
+/* Define variables needed for API request */
 var curRoot = window.location.href;
 var predictURL = `${curRoot}predict`;
 var xhttpReq = new XMLHttpRequest();
+
+/* Initalize API request */
 xhttpReq.open("POST", predictURL, true);
 xhttpReq.setRequestHeader('Content-type', 'application/json');
+
+/* Function that makes request to predict route in flask and returns the prediciton/ call back to a div on the webpage */
 xhttpReq.onreadystatechange = function () {
   if (xhttpReq.readyState === XMLHttpRequest.DONE) {
     var status = xhttpReq.status;
@@ -14,7 +20,8 @@ xhttpReq.onreadystatechange = function () {
       console.log("this is my prediction :: ", xhttpReq.responseText); /* responseText is the return from flask */
       document.getElementById("resultPrediction") /* set this on the index page to return the data */
         .innerText = JSON.parse(xhttpReq.responseText).prediction_value; /*Key inside the json object so value would be prediction_value */
-      /* Add chart JavaScript here*/
+
+      /* Add chart JavaScript here created by Bianca */
       $(function () {/* w ww. j  a  v a 2s. c om*/
         $('#gauge').highcharts({
           chart: {
@@ -90,10 +97,14 @@ xhttpReq.onreadystatechange = function () {
   }
 };
 xhttpReq.onerror = err => console.log(`Send Request Error:\n${err}`);
+
+/* Variable to send data from drop down menus to predict route */
 var sendPkg = {
   date_index: date.value,
   station_id: beach.value
 };
+
+/* Operation to send above variable to predict route */
 xhttpReq.send(JSON.stringify(sendPkg));
 console.log("===>JSON :: ", JSON.stringify(sendPkg))
 
@@ -190,10 +201,14 @@ function update_prediction() {
     }
   };
   xhttpReq.onerror = err => console.log(`Send Request Error:\n${err}`);
+
+  /* Variable to send data from drop down menus to predict route */
   var sendPkg = {
     date_index: date.value,
     station_id: beach.value
   };
+
+  /* Operation to send above variable to predict route */
   xhttpReq.send(JSON.stringify(sendPkg));
   console.log("===>JSON :: ", JSON.stringify(sendPkg))
 }
