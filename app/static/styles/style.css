@@ -1,3 +1,12 @@
+#navbar {
+  background-color: rgb(9, 27, 31);
+  
+}
+
+.nav-link {
+  color: white;
+}
+
 #jumbotron {
   background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url("../images/data_analytics_image1.jpg");
   background-size: 100% 100%;

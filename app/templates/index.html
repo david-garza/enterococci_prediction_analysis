@@ -19,13 +19,14 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    
+
 </head>
 
 <body>
   <div class="container" id="main">
+
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md">
+    <nav class="navbar navbar-expand-md fixed-top" id="navbar">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,7 +59,7 @@
     <!-- Navbar -->
 
     <!-- Jumbotron -->
-    <div class="container pt-5 py-5 bg-image" id="jumbotron">
+    <div class="container mt-5 pt-5 py-5 bg-image" id="jumbotron">
       <div class="container text-center">
         <h1>Enterococci Risk Prediction for Galveston Island Beaches</h1>
         <h3>A Web App That Predicts Risk Levels Using Historical Weather!</h3>
@@ -146,7 +147,7 @@
           <h3>Could rain be causing bacteria runoff into the beaches?</h3>
         </div>
       </div>
-    
+
       <!-- Row for 1st paragraph -->
       <div class="row">
         <div class="col-md-12">
@@ -222,8 +223,7 @@
                 2.0 - Beach Advistory and Closing Online Notification</a>
             </li>
             <li class="list-group-item">
-              <a
-                href="https://www.ncei.noaa.gov/access/past-weather/Galveston%2C%20Texas">National Centers for
+              <a href="https://www.ncei.noaa.gov/access/past-weather/Galveston%2C%20Texas">National Centers for
                 Evironmental Information</a>
             </li>
             <li class="list-group-item">
@@ -237,7 +237,7 @@
           </ul>
         </div>
       </div>
-    </div>  
+    </div>
     <!-- References -->
 
     <!-- Contact Information -->
@@ -251,8 +251,7 @@
               <p>Bianca Taise Pommerening</p>
               <a href="https://www.linkedin.com/in/biancataisepommerening" class="social-icon""><i class=" fab
                 fa-linkedin"></i></a>
-              <a href="https://github.com/BiancaTaisePommerening" class="social-icon"><i
-                  class="fab fa-github"></i></a>
+              <a href="https://github.com/BiancaTaisePommerening" class="social-icon"><i class="fab fa-github"></i></a>
               <a href="mailto:<biancataisep@gmail.com>" class="social-icon"><i class="fas fa-envelope"></i></a>
             </h3>
           </div>
@@ -280,7 +279,7 @@
     <!-- Contact Information -->
 
     <!-- Element to hold prediction values returned by flask -->
-    <div id="resultPrediction"></div>  
+    <div id="resultPrediction"></div>
   </div>
 
   <!-- Java Script Codes -->
