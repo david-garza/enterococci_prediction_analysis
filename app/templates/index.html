@@ -128,11 +128,34 @@
       <div class="row text-center">
         <!-- Returned weather data-->
         <div class="col-6">
-          <p>5 Day Weather Data Place Holder</p>
+          <table class="table">
+            <thead>
+              <th scope="col"></th>
+              <th scope="col">5 Day Weather Values</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Mean High</th>
+                <td>High Temp</td>
+              </tr>
+              <tr>
+                <th scope="row">Mean Low</th>
+                <td>Low Temp</td>
+              </tr>
+              <tr>
+                <th scope="row">Average</th>
+                <td>Average Temp</td>
+              </tr>
+              <tr>
+                <th scope="row">Total Rain</th>
+                <td>Rain</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <!-- Guage Chart-->
         <div class="col-6">
-          <p>Chart Placeholder</p>
+          <div id="gauge"></div>
         </div>
       </div>
     </div>
@@ -246,7 +269,7 @@
         <div class="row">
           <h1>Our Team:</h1>
 
-          <div col-md-2>
+          <div col-md-12>
             <h3 class="intro subtitle">
               <p>Bianca Taise Pommerening</p>
               <a href="https://www.linkedin.com/in/biancataisepommerening" class="social-icon""><i class=" fab
@@ -255,7 +278,7 @@
               <a href="mailto:<biancataisep@gmail.com>" class="social-icon"><i class="fas fa-envelope"></i></a>
             </h3>
           </div>
-          <div col-md-2>
+          <div col-md-12>
             <h3 class="intro subtitle">
               <p>David Carlos Garza</p>
               <a href="https://www.linkedin.com/in/davidcarlosgarza/" class="social-icon"><i
@@ -264,7 +287,7 @@
               <a href="mailto:<david.c.garza@outlook.com>" class="social-icon"><i class="fas fa-envelope"></i></a>
             </h3>
           </div>
-          <div col-md-2>
+          <div col-md-12>
             <h3 class="intro subtitle">
               <p>Laura Grander</p>
               <a href="https://www.linkedin.com/in/lauragrander/" class="social-icon"><i
@@ -283,10 +306,20 @@
   </div>
 
   <!-- Java Script Codes -->
+  <!-- D3.js -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <!-- High Charts for Guage Plot -->
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="http://code.highcharts.com/highcharts-more.js"></script>
   <!-- Boostrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
+  <!-- Prediciton and chart plotting -->
+  <script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+
 </body>
 
 </html>
