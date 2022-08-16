@@ -18,9 +18,17 @@ xhttpReq.onreadystatechange = function () {
     if (status === 0 || (status >= 200 && status < 400)) {
       // The request has been completed successfully
       console.log("this is my prediction :: ", xhttpReq.responseText); /* responseText is the return from flask */
-      document.getElementById("resultPrediction") /* set this on the index page to return the data */
-        .innerText = JSON.parse(xhttpReq.responseText).prediction_value; /*Key inside the json object so value would be prediction_value */
-
+      
+      /* Returns values to HTML page by id */
+      document.getElementById("avgMax")
+        .innerText = JSON.parse(xhttpReq.responseText).avgMax;
+      document.getElementById("avgLow")
+        .innerText = JSON.parse(xhttpReq.responseText).avgLow;
+      document.getElementById("avgAvg")
+        .innerText = JSON.parse(xhttpReq.responseText).avgAvg;
+      document.getElementById("sumPrecip")
+        .innerText = JSON.parse(xhttpReq.responseText).sumPrecip;
+        
       /* Add chart JavaScript here created by Bianca */
       $(function () {/* w ww. j  a  v a 2s. c om*/
         $('#gauge').highcharts({
@@ -123,8 +131,17 @@ function update_prediction() {
       if (status === 0 || (status >= 200 && status < 400)) {
         // The request has been completed successfully
         console.log("this is my prediction :: ", xhttpReq.responseText); /* responseText is the return from flask */
-        document.getElementById("resultPrediction") /* set this on the index page to return the data */
-          .innerText = JSON.parse(xhttpReq.responseText).prediction_value; /*Key inside the json object so value would be prediction_value */
+        
+        /* Returns values to HTML page by id */
+        document.getElementById("avgMax") 
+          .innerText = JSON.parse(xhttpReq.responseText).avgMax; 
+        document.getElementById("avgLow") 
+          .innerText = JSON.parse(xhttpReq.responseText).avgLow;
+        document.getElementById("avgAvg") 
+          .innerText = JSON.parse(xhttpReq.responseText).avgAvg;
+        document.getElementById("sumPrecip") 
+          .innerText = JSON.parse(xhttpReq.responseText).sumPrecip;
+
         /* Add chart JavaScript here*/
         $(function () {/* w ww. j  a  v a 2s. c om*/
           $('#gauge').highcharts({
