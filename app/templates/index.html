@@ -62,18 +62,20 @@
     <div class="container mt-5 pt-5 py-5 bg-image" id="jumbotron">
       <div class="container text-center">
         <h1>Enterococci Risk Prediction for Galveston Island Beaches</h1>
-        <h3>A Web App That Predicts Risk Levels Using Historical Weather!</h3>
+        <h2>A Web App That Predicts Risk Levels Using Historical Weather!</h2>
       </div>
     </div>
     <!-- Jumbotron -->
 
     <!-- Prediction -->
-    <div class="container" id="prediction">
+    <div class="container mt-5" id="prediction">
       <!-- Instructions on how to perform the prediciton -->
       <div class="row">
         <div class="col-md-12">
-          <p>Press button once! Takes about 15 seconds to update prediction. Guage will reset when
-            prediction is updated!</p>
+          <h3>Prediction</h3>
+          <p>This web app will estimate the risk level for enterococci using weather from the previous 5 days and beach location. Please select the date and the beach you are interested in from the dropdowns.
+            It takes about 15 seconds to make the prediction after clicking the predict button. The values in the table and the needle on the gauge will update when the prediction is made.
+          </p>
         </div>
       </div>
 
@@ -135,15 +137,15 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">Mean High</th>
+                <th scope="row">Average High Temperature</th>
                 <td id="avgMax"></td>
               </tr>
               <tr>
-                <th scope="row">Mean Low</th>
+                <th scope="row">Average Low Temperature</th>
                 <td id="avgLow"></td>
               </tr>
               <tr>
-                <th scope="row">Mean Mean</th>
+                <th scope="row">Average Temperature</th>
                 <td id="avgAvg"></td>
               </tr>
               <tr>
