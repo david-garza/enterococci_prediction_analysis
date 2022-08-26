@@ -121,9 +121,6 @@ def predictor(input):
     # Predict
     prediction = ada_model.predict(input_row_scaled)
 
-    # Convert the prediction to high / low risk lable
-    prediction_label=le.inverse_transform(prediction)
-
     # Convert the prediciton 0/1 into 25/75 for JS graphic
     if prediction == 0:
         prediction_value = 75
@@ -131,6 +128,10 @@ def predictor(input):
         prediction_value = 25
 
     # Create the dictionary of values
-    prediction_dict={"prediction_label":prediction_label[0],"prediction_value":prediction_value}
+    prediction_dict={"prediction_value":prediction_value,
+        "avgMax":input_row['5_day_temp_max'].iloc[0],
+        "avgLow":input_row['5_day_temp_min'].iloc[0],
+        "avgAvg":input_row['5_day_temp'].iloc[0],
+        "sumPrecip":round(input_row['5_day_precip1'].iloc[0],2)}
 
     return (prediction_dict)

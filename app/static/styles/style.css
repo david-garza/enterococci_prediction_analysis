@@ -1,29 +1,19 @@
-
-body {
-
-    background-color: white;
-  }
+#navbar {
+  background-color: rgb(9, 27, 31);
   
-  
-  .jumbotron {
-      background-image: url("../images/data_analytics_image1.jpg");
-      background-size: 100% 100%;
-      text-align: center;
-    }
+}
 
+.nav-link {
+  color: white;
+}
 
-    footer {
-      background-color: #2a4560;
-      color: #fff;
-      display: flex;
-      align-items: flex-start;
-      text-align: center;
-      vertical-align: bottom;
-    }
-    
-    .social_icon {
-      background-color: #2f4f6f
+#jumbotron {
+  background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url("../images/data_analytics_image1.jpg");
+  background-size: 100% 100%;
+  color:white;
+}
 
-    }
-
-
+footer {
+  background-color: rgb(9, 27, 31);
+  color:white;
+}

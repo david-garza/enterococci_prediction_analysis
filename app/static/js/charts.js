@@ -1,20 +1,35 @@
-/* Add d3 to select drop items form frontend */
+/* Get inputs from drop down menus */
 var date = d3.selectAll("#date_select").node();
 var beach = d3.selectAll("#beach_select").node();
+
+/* Define variables needed for API request */
 var curRoot = window.location.href;
 var predictURL = `${curRoot}predict`;
 var xhttpReq = new XMLHttpRequest();
+
+/* Initalize API request */
 xhttpReq.open("POST", predictURL, true);
 xhttpReq.setRequestHeader('Content-type', 'application/json');
+
+/* Function that makes request to predict route in flask and returns the prediciton/ call back to a div on the webpage */
 xhttpReq.onreadystatechange = function () {
   if (xhttpReq.readyState === XMLHttpRequest.DONE) {
     var status = xhttpReq.status;
     if (status === 0 || (status >= 200 && status < 400)) {
       // The request has been completed successfully
       console.log("this is my prediction :: ", xhttpReq.responseText); /* responseText is the return from flask */
-      document.getElementById("resultPrediction") /* set this on the index page to return the data */
-        .innerText = JSON.parse(xhttpReq.responseText).prediction_value; /*Key inside the json object so value would be prediction_value */
-      /* Add chart JavaScript here*/
+      
+      /* Returns values to HTML page by id */
+      document.getElementById("avgMax")
+        .innerText = JSON.parse(xhttpReq.responseText).avgMax;
+      document.getElementById("avgLow")
+        .innerText = JSON.parse(xhttpReq.responseText).avgLow;
+      document.getElementById("avgAvg")
+        .innerText = JSON.parse(xhttpReq.responseText).avgAvg;
+      document.getElementById("sumPrecip")
+        .innerText = JSON.parse(xhttpReq.responseText).sumPrecip;
+        
+      /* Add chart JavaScript here created by Bianca */
       $(function () {/* w ww. j  a  v a 2s. c om*/
         $('#gauge').highcharts({
           chart: {
@@ -22,15 +37,18 @@ xhttpReq.onreadystatechange = function () {
             plotBackgroundColor: null,
             plotBackgroundImage: null,
             plotBorderWidth: 0,
-            plotShadow: false
+            plotShadow: false,
+            height: 200
           },
           title: {
             text: 'Bacteria Risk Level'
           },
           pane: {
+            center: ['50%','100%'],
             startAngle: -90,
             endAngle: 90,
-            background: null
+            background: null,
+            size: '200%'
           },
           plotOptions: {
             gauge: {
@@ -90,10 +108,14 @@ xhttpReq.onreadystatechange = function () {
   }
 };
 xhttpReq.onerror = err => console.log(`Send Request Error:\n${err}`);
+
+/* Variable to send data from drop down menus to predict route */
 var sendPkg = {
   date_index: date.value,
   station_id: beach.value
 };
+
+/* Operation to send above variable to predict route */
 xhttpReq.send(JSON.stringify(sendPkg));
 console.log("===>JSON :: ", JSON.stringify(sendPkg))
 
@@ -112,8 +134,17 @@ function update_prediction() {
       if (status === 0 || (status >= 200 && status < 400)) {
         // The request has been completed successfully
         console.log("this is my prediction :: ", xhttpReq.responseText); /* responseText is the return from flask */
-        document.getElementById("resultPrediction") /* set this on the index page to return the data */
-          .innerText = JSON.parse(xhttpReq.responseText).prediction_value; /*Key inside the json object so value would be prediction_value */
+        
+        /* Returns values to HTML page by id */
+        document.getElementById("avgMax") 
+          .innerText = JSON.parse(xhttpReq.responseText).avgMax; 
+        document.getElementById("avgLow") 
+          .innerText = JSON.parse(xhttpReq.responseText).avgLow;
+        document.getElementById("avgAvg") 
+          .innerText = JSON.parse(xhttpReq.responseText).avgAvg;
+        document.getElementById("sumPrecip") 
+          .innerText = JSON.parse(xhttpReq.responseText).sumPrecip;
+
         /* Add chart JavaScript here*/
         $(function () {/* w ww. j  a  v a 2s. c om*/
           $('#gauge').highcharts({
@@ -122,15 +153,18 @@ function update_prediction() {
               plotBackgroundColor: null,
               plotBackgroundImage: null,
               plotBorderWidth: 0,
-              plotShadow: false
+              plotShadow: false,
+              height: 200
             },
             title: {
               text: 'Bacteria Risk Level'
             },
             pane: {
+              center: ['50%', '100%'],
               startAngle: -90,
               endAngle: 90,
-              background: null
+              background: null,
+              size: '200%'
             },
             plotOptions: {
               gauge: {
@@ -190,10 +224,14 @@ function update_prediction() {
     }
   };
   xhttpReq.onerror = err => console.log(`Send Request Error:\n${err}`);
+
+  /* Variable to send data from drop down menus to predict route */
   var sendPkg = {
     date_index: date.value,
     station_id: beach.value
   };
+
+  /* Operation to send above variable to predict route */
   xhttpReq.send(JSON.stringify(sendPkg));
   console.log("===>JSON :: ", JSON.stringify(sendPkg))
 }
