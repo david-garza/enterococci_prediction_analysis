@@ -37,15 +37,18 @@ xhttpReq.onreadystatechange = function () {
             plotBackgroundColor: null,
             plotBackgroundImage: null,
             plotBorderWidth: 0,
-            plotShadow: false
+            plotShadow: false,
+            height: 200
           },
           title: {
             text: 'Bacteria Risk Level'
           },
           pane: {
+            center: ['50%','100%'],
             startAngle: -90,
             endAngle: 90,
-            background: null
+            background: null,
+            size: '200%'
           },
           plotOptions: {
             gauge: {
@@ -150,15 +153,18 @@ function update_prediction() {
               plotBackgroundColor: null,
               plotBackgroundImage: null,
               plotBorderWidth: 0,
-              plotShadow: false
+              plotShadow: false,
+              height: 200
             },
             title: {
               text: 'Bacteria Risk Level'
             },
             pane: {
+              center: ['50%', '100%'],
               startAngle: -90,
               endAngle: 90,
-              background: null
+              background: null,
+              size: '200%'
             },
             plotOptions: {
               gauge: {
