@@ -67,14 +67,45 @@
     </div>
     <!-- Jumbotron -->
 
+    <!-- Article -->
+    <div class="container mt-3" id="article">
+      <!-- Row for titles -->
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Does Runoff Create Enterococci Bloooms Along The Coast?</h3>
+        </div>
+      </div>
+
+      <!-- Row for 1st paragraph -->
+      <div class="row">
+        <div class="col-md-12">
+          The thesis of this project is that enterococci bacteria levels can be predicted using seasonality, beach
+          location, and the previous 5 days weather conditions. Currently, it is believed that bacteria are
+          washed into the sea by rain runoff. A bacterial source, such as an open sewer or agricultural site, must
+          exist on land to produce the bacteria. This model does not take into account sources and therefore it
+          isn't a perfect predictor of bacterial levels. The balanced accuracy of the chosen model is 67%. Models
+          with additional weather data can reach accuracies of 75%!
+        </div>
+      </div>
+      <!-- Row for 2nd paragraph -->
+      <div class="row mt-2">
+        <div class="col-md-12">
+          The model uses the most recent weather data from Scholes Field, the Galveston Island airport. To improve
+          accuracy, the model has been restricted to the 4 city beaches along the Galveston urban area. 
+          These beaches are Stewart Beach, 25th St, 45th St, and 61st St.
+        </div>
+      </div>
+    </div>
+    <!-- Article -->
+
     <!-- Prediction -->
     <div class="container mt-3" id="prediction">
       <!-- Instructions on how to perform the prediciton -->
       <div class="row">
         <div class="col-md-12">
-          <h3>Prediction</h3>
-          <p>This web app will estimate the risk level for enterococci using weather from the previous 5 days and beach location. Please select the date and the beach you are interested in from the dropdowns.
-            It takes about 15 seconds to make the prediction after clicking the predict button. The values in the table and the needle on the gauge will update when the prediction is made.
+          <h3>Prediction App</h3>
+          <p>To make a prediction, please select a data and a beach location from the drop down list, then click predict. The table values
+            and the  gauge needle will update when the prediction is updated.
           </p>
         </div>
       </div>
@@ -162,39 +193,6 @@
       </div>
     </div>
     <!-- Prediciton -->
-
-    <!-- Article -->
-    <div class="container" id="article">
-      <!-- Row for titles -->
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h2>ENTEROCOCCI BACTERIA</h2>
-          <h3>Could rain be causing bacteria runoff into the beaches?</h3>
-        </div>
-      </div>
-
-      <!-- Row for 1st paragraph -->
-      <div class="row">
-        <div class="col-md-12">
-          The thesis of this project is that enterococci bacteria levels can be predicted using seasonality, beach
-          location, and the previous 5 days weather conditions. Currently, it is believed that bacteria are
-          washed into the sea by rain runoff. A bacteria source, such as an open sewer or agricultural site, must
-          exist on land to produce the bacteria. This model does not take into account sources and therefore it
-          isn't a perfect predictor of bacteria levels. The balanced accuracy of the chosen model is 67%. Models
-          with additional weather data can reach accuracies of 75%!
-        </div>
-      </div>
-      <!-- Row for 2nd paragraph -->
-      <div class="row">
-        <div class="col-md-12">
-          The model uses the most recent weather data from Scholes Field, the Galveston Island airport. To improve
-          accuracy, the model has been restricted to the 4 city beaches along the Galveston urban area.
-          These beaches are Stewart Beach, 25th St, 45th St, and 61st St. You can select specific areas along each
-          beach.
-        </div>
-      </div>
-    </div>
-    <!-- Article -->
 
     <!-- EDA / Tabelau-->
     <div class="container" id="eda">
@@ -314,7 +312,8 @@
   <!-- D3.js -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
   <!-- High Charts for Guage Plot -->
   <script src="http://code.highcharts.com/highcharts.js"></script>
   <script src="http://code.highcharts.com/highcharts-more.js"></script>
