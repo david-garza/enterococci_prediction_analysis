@@ -2,6 +2,7 @@
 *.csv
 .DS_Store
 practice
+*.zip
 
 # System configuration files
 config.py
