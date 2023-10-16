@@ -5,8 +5,8 @@ import logging
 from time import sleep
 
 # Custom packages
-from .drop_down_list_setup import get_dates_list
-from .ml_predictor import predictor
+from drop_down_list_setup import get_dates_list
+from ml_predictor import predictor
 
 application = Flask(__name__)
 
